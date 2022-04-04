@@ -1,0 +1,57 @@
+module keypad (
+    input clk,
+    input rst,
+
+    input in_col[4],
+    input in_row[4],
+
+    output out_col[4],
+    output out_row[4],
+
+    output row[3],
+    output col[3]
+  ) {
+  dff check_row(.clk(clk), .rst(rst), #INIT(0));
+
+  always {
+    out_col = 4h0;
+    out_row = 4h0;
+    row = 0;
+    col = 0;
+    
+    if(check_row.q == 0) {
+      out_col = 4hF;
+      case(in_row) {
+        4b1000:
+          row = 1;
+          check_row.d = 1;
+        4b0100:
+          row = 2;
+          check_row.d = 1;
+        4b0010:
+          row = 3;
+          check_row.d = 1;
+        4b0001:
+          row = 4;
+          check_row.d = 1;
+      }
+    }
+    else {
+      out_row = 4hF;
+      case(in_col) {
+        4b1000:
+          col = 1;
+          check_row.d = 0;
+        4b0100:
+          col = 2;
+          check_row.d = 0;
+        4b0010:
+          col = 3;
+          check_row.d = 0;
+        4b0001:
+          col = 4;
+          check_row.d = 0;
+      }
+    }
+  }
+}

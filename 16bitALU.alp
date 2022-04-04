@@ -9,6 +9,7 @@
     <src>game_fsm.luc</src>
     <component>decoder.luc</component>
     <src>regfile_address_enum.luc</src>
+    <src>keypad.luc</src>
     <src>boolean.luc</src>
     <src top="true">au_top.luc</src>
     <src>alu.luc</src>
