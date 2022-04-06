@@ -19,6 +19,9 @@ module au_top (
   
   .clk(clk) {
     .rst(rst) {
+      
+      game_fsm game;
+
       fsm state = {START, MANUAL, AUTO};
       wave wave1;                                                               // fancy wave effect
     }
@@ -39,6 +42,27 @@ module au_top (
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
     
+    game.button_0 = 0;
+    game.button_1 = 0;
+    game.button_2 = 0;
+    game.button_3 = 0;
+    game.button_4 = 0;
+    game.button_5 = 0;
+    game.button_6 = 0;
+    game.button_7 = 0;
+    game.button_8 = 0;
+    game.button_9 = 0;
+
+    game.button_a = 0;
+    game.button_b = 0;
+    game.button_c = 0;
+    game.button_d = 0;
+
+    game.button_asterisk = 0;
+    game.button_hash = 0;
+
+    game.rb_data = 0;
+
     case (state.q) {
       state.START:
         io_led[0] = wave1.out;
