@@ -1,0 +1,144 @@
+module game_fsm_test (
+    input clk,  // clock
+    input rst,  // reset
+
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8],     // DIP switches on IO Shield
+
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4]       // Digit select on IO Shield
+  ) {
+  
+  .clk(clk), .rst(rst) {
+      
+    game_fsm game;
+    regfile regf;
+
+    multi_seven_seg seven_seg_display;
+  }
+
+  always {
+    game.button_0 = 0;
+    game.button_1 = 0;
+    game.button_2 = 0;
+    game.button_3 = 0;
+    game.button_4 = 0;
+    game.button_5 = 0;
+    game.button_6 = 0;
+    game.button_7 = 0;
+    game.button_8 = 0;
+    game.button_9 = 0;
+
+    game.button_a = 0;
+    game.button_b = 0;
+    game.button_c = 0;
+    game.button_d = 0;
+
+    game.button_asterisk = 0;
+    game.button_hash = 0;
+
+    game.rb_data = 0;
+
+    regf.ra = game.ra;
+    regf.rb = game.rb;
+    regf.rc = game.rc;
+    regf.ra2sel = game.ra2sel;
+    regf.we = game.we;
+    regf.data = game.literal;
+
+    game.rb_data = regf.rb_data;
+
+    if(io_button[0]) {
+      case(io_dip[1][3:0]) {
+        0:
+          game.button_0 = 1;
+        1:
+          game.button_1 = 1;
+        2:
+          game.button_2 = 1;
+        3:
+          game.button_3 = 1;
+        4:
+          game.button_4 = 1;
+        5:
+          game.button_5 = 1;
+        6:
+          game.button_6 = 1;
+        7:
+          game.button_7 = 1;
+        8:
+          game.button_8 = 1;
+        9:
+          game.button_9 = 1;
+        10:
+          game.button_a = 1;
+        11:
+          game.button_b = 1;
+        12:
+          game.button_c = 1;
+        13:
+          game.button_d = 1;
+        14:
+          game.button_asterisk = 1;
+        15:
+          game.button_hash = 1;
+      }
+    }
+    case(io_dip[2][3:0]) {
+      1:
+        seven_seg_display.values[0] = regf.board_state[0][0][3:0];
+        seven_seg_display.values[1] = regf.board_state[0][0][7:4];
+        seven_seg_display.values[2] = regf.board_state[0][0][11:8];
+        seven_seg_display.values[3] = regf.board_state[0][0][15:12];
+      2:
+        seven_seg_display.values[0] = regf.board_state[0][1][3:0];
+        seven_seg_display.values[1] = regf.board_state[0][1][7:4];
+        seven_seg_display.values[2] = regf.board_state[0][1][11:8];
+        seven_seg_display.values[3] = regf.board_state[0][1][15:12];
+      3:
+        seven_seg_display.values[0] = regf.board_state[0][2][3:0];
+        seven_seg_display.values[1] = regf.board_state[0][2][7:4];
+        seven_seg_display.values[2] = regf.board_state[0][2][11:8];
+        seven_seg_display.values[3] = regf.board_state[0][2][15:12];
+      4:
+        seven_seg_display.values[0] = regf.board_state[1][0][3:0];
+        seven_seg_display.values[1] = regf.board_state[1][0][7:4];
+        seven_seg_display.values[2] = regf.board_state[1][0][11:8];
+        seven_seg_display.values[3] = regf.board_state[1][0][15:12];
+      5:
+        seven_seg_display.values[0] = regf.board_state[1][1][3:0];
+        seven_seg_display.values[1] = regf.board_state[1][1][7:4];
+        seven_seg_display.values[2] = regf.board_state[1][1][11:8];
+        seven_seg_display.values[3] = regf.board_state[1][1][15:12];
+      6:
+        seven_seg_display.values[0] = regf.board_state[1][2][3:0];
+        seven_seg_display.values[1] = regf.board_state[1][2][7:4];
+        seven_seg_display.values[2] = regf.board_state[1][2][11:8];
+        seven_seg_display.values[3] = regf.board_state[1][2][15:12];
+      7:
+        seven_seg_display.values[0] = regf.board_state[2][0][3:0];
+        seven_seg_display.values[1] = regf.board_state[2][0][7:4];
+        seven_seg_display.values[2] = regf.board_state[2][0][11:8];
+        seven_seg_display.values[3] = regf.board_state[2][0][15:12];
+      8:
+        seven_seg_display.values[0] = regf.board_state[2][1][3:0];
+        seven_seg_display.values[1] = regf.board_state[2][1][7:4];
+        seven_seg_display.values[2] = regf.board_state[2][1][11:8];
+        seven_seg_display.values[3] = regf.board_state[2][1][15:12];
+      9:
+        seven_seg_display.values[0] = regf.board_state[2][2][3:0];
+        seven_seg_display.values[1] = regf.board_state[2][2][7:4];
+        seven_seg_display.values[2] = regf.board_state[2][2][11:8];
+        seven_seg_display.values[3] = regf.board_state[2][2][15:12];
+      default:
+        seven_seg_display.values[0] = 22;
+        seven_seg_display.values[1] = 22;
+        seven_seg_display.values[2] = 22;
+        seven_seg_display.values[3] = 22;
+    }
+    io_seg = seven_seg_display.seg;
+    io_sel = seven_seg_display.sel;
+    io_led = {8b0, 8b0, game.state};
+  }
+}

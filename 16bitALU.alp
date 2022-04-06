@@ -2,9 +2,11 @@
 <project name="16bitALU" board="Alchitry Au" language="Lucid" version="3">
   <files>
     <src>multiplier.luc</src>
+    <src>game_fsm_test.luc</src>
     <src>shifter.luc</src>
     <component>wave.luc</component>
     <src>op_code_enum.luc</src>
+    <src>multi_seven_seg.luc</src>
     <component>counter.luc</component>
     <src>game_fsm.luc</src>
     <component>decoder.luc</component>
@@ -16,6 +18,7 @@
     <component>reset_conditioner.luc</component>
     <src>adder.luc</src>
     <src>compare.luc</src>
+    <src>seven_seg.luc</src>
     <constraint lib="true">alchitry.acf</constraint>
     <constraint lib="true">io.acf</constraint>
     <constraint lib="true">au.xdc</constraint>
