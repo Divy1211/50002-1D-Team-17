@@ -20,7 +20,303 @@ module regfile (
     output winner[16]
   ) {
 
+  sig ra_data_s[16];
+  sig rc_s[5];
+  
+  .clk(clk), .rst(rst) {
+    dff box00[16](#INIT(0));
+    dff box01[16](#INIT(0));
+    dff box02[16](#INIT(0));
+    dff box10[16](#INIT(0));
+    dff box11[16](#INIT(0));
+    dff box12[16](#INIT(0));
+    dff box20[16](#INIT(0));
+    dff box21[16](#INIT(0));
+    dff box22[16](#INIT(0));
+
+    dff pieces_remaining_small_p1[16](#INIT(0));
+    dff pieces_remaining_small_p2[16](#INIT(0));
+
+    dff pieces_remaining_med_p1[16](#INIT(0));
+    dff pieces_remaining_med_p2[16](#INIT(0));
+
+    dff pieces_remaining_large_p1[16](#INIT(0));
+    dff pieces_remaining_large_p2[16](#INIT(0));
+
+    dff selected_size_p1[16](#INIT(0));
+    dff selected_size_p2[16](#INIT(0));
+    
+    dff winner_dff[16](#INIT(0));
+
+    dff box_addr[16](#INIT(0));
+
+    dff temp1[16](#INIT(0));
+    dff temp2[16](#INIT(0));
+    dff temp3[16](#INIT(0));
+    dff temp4[16](#INIT(0));
+    dff temp5[16](#INIT(0));
+    dff temp6[16](#INIT(0));
+    dff temp7[16](#INIT(0));
+    dff temp8[16](#INIT(0));
+    dff temp9[16](#INIT(0));
+    dff temp10[16](#INIT(0));
+    dff temp11[16](#INIT(0));
+    dff temp12[16](#INIT(0));
+    dff temp13[16](#INIT(0));
+  }
+
   always {
 
+    ra_data = 0;
+    rb_data = 0;
+    ra_data_s = 0;
+
+
+    board_state = {{box00.q, box01.q, box02.q}, {box10.q, box11.q, box12.q}, {box20.q, box21.q, box22.q}};
+    pieces_remaining_p1 = 0;
+    pieces_remaining_p2 = 0;
+    winner = winner_dff.q;
+
+    case(ra) {
+      0:
+        ra_data_s = box00.q;
+      1:
+        ra_data_s = box01.q;
+      2:
+        ra_data_s = box02.q;
+      3:
+        ra_data_s = box10.q;
+      4:
+        ra_data_s = box11.q;
+      5:
+        ra_data_s = box12.q;
+      6:
+        ra_data_s = box20.q;
+      7:
+        ra_data_s = box21.q;
+      8:
+        ra_data_s = box22.q;
+      9:
+        ra_data_s = pieces_remaining_small_p1.q;
+      10:
+        ra_data_s = pieces_remaining_small_p2.q;
+      11:
+        ra_data_s = pieces_remaining_med_p1.q;
+      12:
+        ra_data_s = pieces_remaining_med_p2.q;
+      13:
+        ra_data_s = pieces_remaining_large_p1.q;
+      14:
+        ra_data_s = pieces_remaining_large_p2.q;
+      15:
+        ra_data_s = selected_size_p1.q;
+      16:
+        ra_data_s = selected_size_p2.q;
+      17:
+        ra_data_s = winner_dff.q;
+      18:
+        ra_data_s = box_addr.q;
+      19:
+        ra_data_s = temp1.q;
+      20:
+        ra_data_s = temp2.q;
+      21:
+        ra_data_s = temp3.q;
+      22:
+        ra_data_s = temp4.q;
+      23:
+        ra_data_s = temp5.q;
+      24:
+        ra_data_s = temp6.q;
+      25:
+        ra_data_s = temp7.q;
+      26:
+        ra_data_s = temp8.q;
+      27:
+        ra_data_s = temp9.q;
+      28:
+        ra_data_s = temp10.q;
+      29:
+        ra_data_s = temp11.q;
+      30:
+        ra_data_s = temp12.q;
+      31:
+        ra_data_s = temp13.q;
+    }
+
+    ra_data = ra_data_s;
+
+    case(rb) {
+      0:
+        rb_data = box00.q;
+      1:
+        rb_data = box01.q;
+      2:
+        rb_data = box02.q;
+      3:
+        rb_data = box10.q;
+      4:
+        rb_data = box11.q;
+      5:
+        rb_data = box12.q;
+      6:
+        rb_data = box20.q;
+      7:
+        rb_data = box21.q;
+      8:
+        rb_data = box22.q;
+      9:
+        rb_data = pieces_remaining_small_p1.q;
+      10:
+        rb_data = pieces_remaining_small_p2.q;
+      11:
+        rb_data = pieces_remaining_med_p1.q;
+      12:
+        rb_data = pieces_remaining_med_p2.q;
+      13:
+        rb_data = pieces_remaining_large_p1.q;
+      14:
+        rb_data = pieces_remaining_large_p2.q;
+      15:
+        rb_data = selected_size_p1.q;
+      16:
+        rb_data = selected_size_p2.q;
+      17:
+        rb_data = winner_dff.q;
+      18:
+        rb_data = box_addr.q;
+      19:
+        rb_data = temp1.q;
+      20:
+        rb_data = temp2.q;
+      21:
+        rb_data = temp3.q;
+      22:
+        rb_data = temp4.q;
+      23:
+        rb_data = temp5.q;
+      24:
+        rb_data = temp6.q;
+      25:
+        rb_data = temp7.q;
+      26:
+        rb_data = temp8.q;
+      27:
+        rb_data = temp9.q;
+      28:
+        rb_data = temp10.q;
+      29:
+        rb_data = temp11.q;
+      30:
+        rb_data = temp12.q;
+      31:
+        rb_data = temp13.q;
+    }
+
+    rc_s = rc;
+    if(ra2sel) {
+      rc_s = ra_data_s[4:0];
+    }
+    if(we) {
+      case(rc_s) {
+        0:
+          box00.d = data;
+        1:
+          box01.d = data;
+        2:
+          box02.d = data;
+        3:
+          box10.d = data;
+        4:
+          box11.d = data;
+        5:
+          box12.d = data;
+        6:
+          box20.d = data;
+        7:
+          box21.d = data;
+        8:
+          box22.d = data;
+        9:
+          pieces_remaining_small_p1.d = data;
+        10:
+          pieces_remaining_small_p2.d = data;
+        11:
+          pieces_remaining_med_p1.d = data;
+        12:
+          pieces_remaining_med_p2.d = data;
+        13:
+          pieces_remaining_large_p1.d = data;
+        14:
+          pieces_remaining_large_p2.d = data;
+        15:
+          selected_size_p1.d = data;
+        16:
+          selected_size_p2.d = data;
+        17:
+          winner_dff.d = data;
+        18:
+          box_addr.d = data;
+        19:
+          temp1.d = data;
+        20:
+          temp2.d = data;
+        21:
+          temp3.d = data;
+        22:
+          temp4.d = data;
+        23:
+          temp5.d = data;
+        24:
+          temp6.d = data;
+        25:
+          temp7.d = data;
+        26:
+          temp8.d = data;
+        27:
+          temp9.d = data;
+        28:
+          temp10.d = data;
+        29:
+          temp11.d = data;
+        30:
+          temp12.d = data;
+        31:
+          temp13.d = data;
+      }
+    } else {
+      box00.d = box00.q;
+      box01.d = box01.q;
+      box02.d = box02.q;
+      box10.d = box10.q;
+      box11.d = box11.q;
+      box12.d = box12.q;
+      box20.d = box20.q;
+      box21.d = box21.q;
+      box22.d = box22.q;
+      pieces_remaining_small_p1.d = pieces_remaining_small_p1.q;
+      pieces_remaining_small_p2.d = pieces_remaining_small_p2.q;
+      pieces_remaining_med_p1.d = pieces_remaining_med_p1.q;
+      pieces_remaining_med_p2.d = pieces_remaining_med_p2.q;
+      pieces_remaining_large_p1.d = pieces_remaining_large_p1.q;
+      pieces_remaining_large_p2.d = pieces_remaining_large_p2.q;
+      selected_size_p1.d = selected_size_p1.q;
+      selected_size_p2.d = selected_size_p2.q;
+      winner_dff.d = winner_dff.q;
+      box_addr.d = box_addr.q;
+      temp1.d = temp1.q;
+      temp2.d = temp2.q;
+      temp3.d = temp3.q;
+      temp4.d = temp4.q;
+      temp5.d = temp5.q;
+      temp6.d = temp6.q;
+      temp7.d = temp7.q;
+      temp8.d = temp8.q;
+      temp9.d = temp9.q;
+      temp10.d = temp10.q;
+      temp11.d = temp11.q;
+      temp12.d = temp12.q;
+      temp13.d = temp13.q;
+    }
   }
 }

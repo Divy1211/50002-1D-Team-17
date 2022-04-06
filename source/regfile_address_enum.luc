@@ -20,7 +20,7 @@ module regfile_address_enum (
 
     output selected_size_p1[5],
     output selected_size_p2[5],
-    
+
     output winner[5],
 
     output box_addr[5],
