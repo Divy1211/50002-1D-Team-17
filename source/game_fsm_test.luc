@@ -8,6 +8,7 @@ module game_fsm_test (
     output io_led [3][8],   // LEDs on IO Shield
     output io_seg [8],      // 7-segment LEDs on IO Shield
     output io_sel [4]       // Digit select on IO Shield
+    output state[8]
   ) {
   
   .clk(clk), .rst(rst) {
@@ -163,5 +164,6 @@ module game_fsm_test (
     io_seg = seven_seg_display.seg;
     io_sel = seven_seg_display.sel;
     io_led = {8b0, 8b0, game.state};
+    state = game.state;
   }
 }
