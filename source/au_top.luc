@@ -27,6 +27,8 @@ module au_top (
       fsm state = {START, MANUAL, AUTO};
       wave wave1;                                                               // fancy wave effect
       multi_seven_seg seven_seg_display;
+
+      keypad_driver keypad;
     }
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
@@ -39,7 +41,8 @@ module au_top (
 
   always {
     outled = 0;
-    keypadrow = 0;
+    keypadrow = keypad.out_row;
+    keypad.in_col = keypadcol;
     
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;
@@ -59,6 +62,24 @@ module au_top (
 
     test.io_button = 0;
     test.io_dip = {8b0, 8b0, 8b0};
+    test.button_0 = 0;
+    test.button_1 = 0;
+    test.button_2 = 0;
+    test.button_3 = 0;
+    test.button_4 = 0;
+    test.button_5 = 0;
+    test.button_6 = 0;
+    test.button_7 = 0;
+    test.button_8 = 0;
+    test.button_9 = 0;
+
+    test.button_a = 0;
+    test.button_b = 0;
+    test.button_c = 0;
+    test.button_d = 0;
+    test.button_asterisk = 0;
+    test.button_hash = 0;
+
 
     case (state.q) {
       state.START:
@@ -71,7 +92,26 @@ module au_top (
       state.MANUAL:
         test.io_button = io_button;
         test.io_dip = io_dip;
-      
+
+          test.button_0 = keypad.button_0;
+          test.button_1 = keypad.button_1;
+          test.button_2 = keypad.button_2;
+          test.button_3 = keypad.button_3;
+          test.button_4 = keypad.button_4;
+          test.button_5 = keypad.button_5;
+          test.button_6 = keypad.button_6;
+          test.button_7 = keypad.button_7;
+          test.button_8 = keypad.button_8;
+          test.button_9 = keypad.button_9;
+
+          test.button_a = keypad.button_a;
+          test.button_b = keypad.button_b;
+          test.button_c = keypad.button_c;
+          test.button_d = keypad.button_d;
+
+          test.button_asterisk = keypad.button_asterisk;
+          test.button_hash = keypad.button_hash;
+
         seven_seg_display.values[0] = test.display[3:0];
         seven_seg_display.values[1] = test.display[7:4];
         seven_seg_display.values[2] = test.display[11:8];

@@ -5,6 +5,23 @@ module game_fsm_test (
     input io_button [5],    // 5 buttons on IO Shield
     input io_dip [3][8],     // DIP switches on IO Shield
     
+    input button_0,
+    input button_1,
+    input button_2,
+    input button_3,
+    input button_4,
+    input button_5,
+    input button_6,
+    input button_7,
+    input button_8,
+    input button_9,
+    input button_a,
+    input button_b,
+    input button_c,
+    input button_d,
+    input button_asterisk,
+    input button_hash,
+
     output display[16]
   ) {
   
@@ -15,24 +32,24 @@ module game_fsm_test (
   alu aluTest;
 
   always {
-    game.button_0 = 0;
-    game.button_1 = 0;
-    game.button_2 = 0;
-    game.button_3 = 0;
-    game.button_4 = 0;
-    game.button_5 = 0;
-    game.button_6 = 0;
-    game.button_7 = 0;
-    game.button_8 = 0;
-    game.button_9 = 0;
+    game.button_0 = button_0;
+    game.button_1 = button_1;
+    game.button_2 = button_2;
+    game.button_3 = button_3;
+    game.button_4 = button_4;
+    game.button_5 = button_5;
+    game.button_6 = button_6;
+    game.button_7 = button_7;
+    game.button_8 = button_8;
+    game.button_9 = button_9;
 
-    game.button_a = 0;
-    game.button_b = 0;
-    game.button_c = 0;
-    game.button_d = 0;
+    game.button_a = button_a;
+    game.button_b = button_b;
+    game.button_c = button_c;
+    game.button_d = button_d;
 
-    game.button_asterisk = 0;
-    game.button_hash = 0;
+    game.button_asterisk = button_asterisk;
+    game.button_hash = button_hash;
 
     game.rb_data = 0;
 
@@ -58,42 +75,42 @@ module game_fsm_test (
 
     display = 0;
 
-    if(io_button[0]) {
-      case(io_dip[1][3:0]) {
-        0:
-          game.button_0 = 1;
-        1:
-          game.button_1 = 1;
-        2:
-          game.button_2 = 1;
-        3:
-          game.button_3 = 1;
-        4:
-          game.button_4 = 1;
-        5:
-          game.button_5 = 1;
-        6:
-          game.button_6 = 1;
-        7:
-          game.button_7 = 1;
-        8:
-          game.button_8 = 1;
-        9:
-          game.button_9 = 1;
-        10:
-          game.button_a = 1;
-        11:
-          game.button_b = 1;
-        12:
-          game.button_c = 1;
-        13:
-          game.button_d = 1;
-        14:
-          game.button_asterisk = 1;
-        15:
-          game.button_hash = 1;
-      }
-    }
+    // if(io_button[0]) {
+    //   case(io_dip[1][3:0]) {
+    //     0:
+    //       game.button_0 = 1;
+    //     1:
+    //       game.button_1 = 1;
+    //     2:
+    //       game.button_2 = 1;
+    //     3:
+    //       game.button_3 = 1;
+    //     4:
+    //       game.button_4 = 1;
+    //     5:
+    //       game.button_5 = 1;
+    //     6:
+    //       game.button_6 = 1;
+    //     7:
+    //       game.button_7 = 1;
+    //     8:
+    //       game.button_8 = 1;
+    //     9:
+    //       game.button_9 = 1;
+    //     10:
+    //       game.button_a = 1;
+    //     11:
+    //       game.button_b = 1;
+    //     12:
+    //       game.button_c = 1;
+    //     13:
+    //       game.button_d = 1;
+    //     14:
+    //       game.button_asterisk = 1;
+    //     15:
+    //       game.button_hash = 1;
+    //   }
+    // }
     
     case(io_dip[2][0]) {
       0:
