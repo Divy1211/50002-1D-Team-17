@@ -220,122 +220,122 @@ module game_fsm (
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_01_MIN_P1;
       game_state.CHECK_BOX_01_MIN_P1:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box01;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_01_MIN_P1;
       game_state.MAKE_BOX_01_MIN_P1:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box01;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_02_MIN_P1;
       game_state.CHECK_BOX_02_MIN_P1:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box02;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_02_MIN_P1;
       game_state.MAKE_BOX_02_MIN_P1:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box02;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_10_MIN_P1;
       game_state.CHECK_BOX_10_MIN_P1:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box10;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_10_MIN_P1;
       game_state.MAKE_BOX_10_MIN_P1:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box10;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_11_MIN_P1;
       game_state.CHECK_BOX_11_MIN_P1:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box11;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_11_MIN_P1;
       game_state.MAKE_BOX_11_MIN_P1:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box11;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_12_MIN_P1;
       game_state.CHECK_BOX_12_MIN_P1:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box12;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_12_MIN_P1;
       game_state.MAKE_BOX_12_MIN_P1:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box12;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_20_MIN_P1;
       game_state.CHECK_BOX_20_MIN_P1:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box20;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_20_MIN_P1;
       game_state.MAKE_BOX_20_MIN_P1:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box20;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_21_MIN_P1;
       game_state.CHECK_BOX_21_MIN_P1:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box21;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_21_MIN_P1;
       game_state.MAKE_BOX_21_MIN_P1:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box21;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_22_MIN_P1;
       game_state.CHECK_BOX_22_MIN_P1:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box22;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_22_MIN_P1;
       game_state.MAKE_BOX_22_MIN_P1:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box22;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_SMALL_PIECES_P1_PT1;
       game_state.CHECK_SMALL_PIECES_P1_PT1:
-        we = 1;
         rb = regfile_addr.pieces_remaining_small_p1;
-        rc = regfile_addr.temp2;
         asel = 1;
+        we = 1;
+        rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_SMALL_PIECES_P1_PT2;
       game_state.CHECK_SMALL_PIECES_P1_PT2:
@@ -349,17 +349,17 @@ module game_fsm (
         }
       game_state.CHECK_SMALL_PIECES_P1_PT3:
         we = 1;
+        bsel = 1;
         literal = 8;
         ra = regfile_addr.temp1;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.sub_16;
         game_state.d = game_state.CHECK_SMALL_PIECES_P1_PT4;
       game_state.CHECK_SMALL_PIECES_P1_PT4:
         we = 1;
+        bsel = 1;
         literal = -2;
         ra = regfile_addr.temp2;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_SMALL_PIECES_P1_PT5;
@@ -373,10 +373,10 @@ module game_fsm (
           game_state.d = game_state.SELECT_BOX_P1;
         }
       game_state.CHECK_MED_PIECES_P1_PT1:
-        we = 1;
         rb = regfile_addr.pieces_remaining_med_p1;
-        rc = regfile_addr.temp2;
         asel = 1;
+        we = 1;
+        rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_MED_PIECES_P1_PT2;
       game_state.CHECK_MED_PIECES_P1_PT2:
@@ -390,17 +390,17 @@ module game_fsm (
         }
       game_state.CHECK_MED_PIECES_P1_PT3:
         we = 1;
+        bsel = 1;
         literal = 14;
         ra = regfile_addr.temp1;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.sub_16;
         game_state.d = game_state.CHECK_MED_PIECES_P1_PT4;
       game_state.CHECK_MED_PIECES_P1_PT4:
         we = 1;
+        bsel = 1;
         literal = -2;
         ra = regfile_addr.temp2;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_MED_PIECES_P1_PT5;
@@ -414,10 +414,10 @@ module game_fsm (
           game_state.d = game_state.SELECT_BOX_P1;
         }
       game_state.CHECK_LARGE_PIECES_P1_PT1:
-        we = 1;
         rb = regfile_addr.pieces_remaining_large_p1;
-        rc = regfile_addr.temp2;
         asel = 1;
+        we = 1;
+        rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_LARGE_PIECES_P1_PT2;
       game_state.CHECK_LARGE_PIECES_P1_PT2:
@@ -431,17 +431,17 @@ module game_fsm (
         }
       game_state.CHECK_LARGE_PIECES_P1_PT3:
         we = 1;
+        bsel = 1;
         literal = 20;
         ra = regfile_addr.temp1;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.sub_16;
         game_state.d = game_state.CHECK_LARGE_PIECES_P1_PT4;
       game_state.CHECK_LARGE_PIECES_P1_PT4:
         we = 1;
+        bsel = 1;
         literal = -2;
         ra = regfile_addr.temp2;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_LARGE_PIECES_P1_PT5;
@@ -457,115 +457,124 @@ module game_fsm (
       game_state.SELECT_BOX_P1:
         if(button_1) {
           we = 1;
-          ra = regfile_addr.box00;
+          bsel = 1;
+          literal = regfile_addr.box00;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P1;
         }
         if(button_2) {
           we = 1;
-          ra = regfile_addr.box01;
+          bsel = 1;
+          literal = regfile_addr.box01;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P1;
         }
         if(button_3) {
           we = 1;
-          ra = regfile_addr.box02;
+          bsel = 1;
+          literal = regfile_addr.box02;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P1;
         }
         if(button_4) {
           we = 1;
-          ra = regfile_addr.box10;
+          bsel = 1;
+          literal = regfile_addr.box10;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P1;
         }
         if(button_5) {
           we = 1;
-          ra = regfile_addr.box11;
+          bsel = 1;
+          literal = regfile_addr.box11;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P1;
         }
         if(button_6) {
           we = 1;
-          ra = regfile_addr.box12;
+          bsel = 1;
+          literal = regfile_addr.box12;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P1;
         }
         if(button_7) {
           we = 1;
-          ra = regfile_addr.box20;
+          bsel = 1;
+          literal = regfile_addr.box20;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P1;
         }
         if(button_8) {
           we = 1;
-          ra = regfile_addr.box21;
+          bsel = 1;
+          literal = regfile_addr.box21;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P1;
         }
         if(button_9) {
           we = 1;
-          ra = regfile_addr.box22;
+          bsel = 1;
+          literal = regfile_addr.box22;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P1;
         }
       game_state.SELECT_SIZE_P1:
         if(button_a) {
-          we = 1;
           rb = regfile_addr.pieces_remaining_small_p1;
-          rc = regfile_addr.temp1;
           asel = 1;
+          we = 1;
+          rc = regfile_addr.temp1;
           alufn = alu_op_code.lt_16;
           game_state.d = game_state.CHECK_SIZE_SMALL_P1;
         }
         if(button_b) {
-          we = 1;
           rb = regfile_addr.pieces_remaining_med_p1;
-          rc = regfile_addr.temp1;
           asel = 1;
+          we = 1;
+          rc = regfile_addr.temp1;
           alufn = alu_op_code.lt_16;
           game_state.d = game_state.CHECK_SIZE_MED_P1;
         }
         if(button_c) {
-          we = 1;
           rb = regfile_addr.pieces_remaining_large_p1;
-          rc = regfile_addr.temp1;
           asel = 1;
+          we = 1;
+          rc = regfile_addr.temp1;
           alufn = alu_op_code.lt_16;
           game_state.d = game_state.CHECK_SIZE_LARGE_P1;
         }
         if(button_d) {
-          we = 1;
           rb = 0;
-          rc = regfile_addr.box_addr;
           asel = 1;
+          we = 1;
+          rc = regfile_addr.box_addr;
           alufn = alu_op_code.t_a_16;
           game_state.d = game_state.SELECT_BOX_P1;
         }
       game_state.CHECK_SIZE_SMALL_P1:
         rb = regfile_addr.temp1;
         if(rb_data == 0) {
-          we = rb_data[0];
-          literal = 8;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 8;
           rc = regfile_addr.selected_size_p1;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_BOX_P1;
         } else {
-          we = rb_data[0];
-          literal = 8;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 8;
           rc = regfile_addr.selected_size_p1;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.VALIDATE_PLACEMENT_P1_PT1;
@@ -573,18 +582,18 @@ module game_fsm (
       game_state.CHECK_SIZE_MED_P1:
         rb = regfile_addr.temp1;
         if(rb_data == 0) {
-          we = rb_data[0];
-          literal = 14;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 14;
           rc = regfile_addr.selected_size_p1;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_BOX_P1;
         } else {
-          we = rb_data[0];
-          literal = 14;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 14;
           rc = regfile_addr.selected_size_p1;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.VALIDATE_PLACEMENT_P1_PT1;
@@ -592,41 +601,41 @@ module game_fsm (
       game_state.CHECK_SIZE_LARGE_P1:
         rb = regfile_addr.temp1;
         if(rb_data == 0) {
-          we = rb_data[0];
-          literal = 20;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 20;
           rc = regfile_addr.selected_size_p1;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_BOX_P1;
         } else {
-          we = rb_data[0];
-          literal = 20;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 20;
           rc = regfile_addr.selected_size_p1;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.VALIDATE_PLACEMENT_P1_PT1;
         }
       game_state.VALIDATE_PLACEMENT_P1_PT1:
+        rb = regfile_addr.box_addr;
         we = 1;
         ra = rb_data[4:0];
-        rb = regfile_addr.box_addr;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.VALIDATE_PLACEMENT_P1_PT2;
       game_state.VALIDATE_PLACEMENT_P1_PT2:
+        rb = regfile_addr.temp2;
         we = 1;
         ra = regfile_addr.selected_size_p1;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp3;
         alufn = alu_op_code.sub_16;
         game_state.d = game_state.VALIDATE_PLACEMENT_P1_PT3;
       game_state.VALIDATE_PLACEMENT_P1_PT3:
         we = 1;
+        bsel = 1;
         literal = 2;
         ra = regfile_addr.temp3;
-        bsel = 1;
         rc = regfile_addr.temp3;
         alufn = alu_op_code.ltq_16;
         game_state.d = game_state.VALIDATE_PLACEMENT_P1_PT4;
@@ -640,38 +649,38 @@ module game_fsm (
           game_state.d = game_state.SELECT_BOX_P1;
         }
       game_state.PLACE_PIECE_P1:
-        we = 1;
-        ra = regfile_addr.box_addr;
         rb = regfile_addr.selected_size_p1;
+        we = 1;
         ra2sel = 1;
+        ra = regfile_addr.box_addr;
         alufn = alu_op_code.t_b_16;
         game_state.d = game_state.COMPLETE_ROW_0_CHECK_BOX_00_P1;
       game_state.COMPLETE_ROW_0_CHECK_BOX_00_P1:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box00;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_ROW_0_CHECK_BOX_01_P1;
       game_state.COMPLETE_ROW_0_CHECK_BOX_01_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box01;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_1_CHECK_BOX_10_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box01;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_0_CHECK_BOX_02_P1;
@@ -679,50 +688,50 @@ module game_fsm (
       game_state.COMPLETE_ROW_0_CHECK_BOX_02_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_1_CHECK_BOX_10_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P1_WON;
         }
       game_state.COMPLETE_ROW_1_CHECK_BOX_10_P1:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box10;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_ROW_1_CHECK_BOX_11_P1;
       game_state.COMPLETE_ROW_1_CHECK_BOX_11_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_2_CHECK_BOX_20_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_1_CHECK_BOX_12_P1;
@@ -730,50 +739,50 @@ module game_fsm (
       game_state.COMPLETE_ROW_1_CHECK_BOX_12_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box12;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_2_CHECK_BOX_20_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box12;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P1_WON;
         }
       game_state.COMPLETE_ROW_2_CHECK_BOX_20_P1:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box20;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_ROW_2_CHECK_BOX_21_P1;
       game_state.COMPLETE_ROW_2_CHECK_BOX_21_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box21;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_0_CHECK_BOX_00_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box21;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_2_CHECK_BOX_22_P1;
@@ -781,68 +790,68 @@ module game_fsm (
       game_state.COMPLETE_ROW_2_CHECK_BOX_22_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_0_CHECK_BOX_00_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P1_WON;
         }
       game_state.COMPLETE_COL_0_CHECK_BOX_00_P1:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box00;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_COL_0_CHECK_BOX_01_P1;
       game_state.COMPLETE_COL_1_CHECK_BOX_10_P1:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box10;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_COL_1_CHECK_BOX_11_P1;
       game_state.COMPLETE_COL_2_CHECK_BOX_20_P1:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box20;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_COL_2_CHECK_BOX_21_P1;
       game_state.COMPLETE_COL_0_CHECK_BOX_01_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box01;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_1_CHECK_BOX_10_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box01;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_0_CHECK_BOX_02_P1;
@@ -850,20 +859,20 @@ module game_fsm (
       game_state.COMPLETE_COL_1_CHECK_BOX_11_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_2_CHECK_BOX_20_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_1_CHECK_BOX_12_P1;
@@ -871,20 +880,20 @@ module game_fsm (
       game_state.COMPLETE_COL_2_CHECK_BOX_21_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box21;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_0_CHECK_BOX_00_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box21;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_2_CHECK_BOX_22_P1;
@@ -892,20 +901,20 @@ module game_fsm (
       game_state.COMPLETE_COL_0_CHECK_BOX_02_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_1_CHECK_BOX_10_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P1_WON;
@@ -913,20 +922,20 @@ module game_fsm (
       game_state.COMPLETE_COL_1_CHECK_BOX_12_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box12;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_2_CHECK_BOX_20_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box12;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P1_WON;
@@ -934,50 +943,50 @@ module game_fsm (
       game_state.COMPLETE_COL_2_CHECK_BOX_22_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_0_CHECK_BOX_00_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P1_WON;
         }
       game_state.COMPLETE_DIA_0_CHECK_BOX_00_P1:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box00;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_DIA_0_CHECK_BOX_11_P1;
       game_state.COMPLETE_DIA_0_CHECK_BOX_11_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_1_CHECK_BOX_20_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_0_CHECK_BOX_22_P1;
@@ -985,50 +994,50 @@ module game_fsm (
       game_state.COMPLETE_DIA_0_CHECK_BOX_22_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_1_CHECK_BOX_20_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P1_WON;
         }
       game_state.COMPLETE_DIA_1_CHECK_BOX_20_P1:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box20;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_DIA_1_CHECK_BOX_11_P1;
       game_state.COMPLETE_DIA_1_CHECK_BOX_11_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.SELECT_BOX_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_1_CHECK_BOX_02_P1;
@@ -1036,20 +1045,20 @@ module game_fsm (
       game_state.COMPLETE_DIA_1_CHECK_BOX_02_P1:
         rb = regfile_addr.temp4;
         if(rb_data[1] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.SELECT_BOX_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P1_WON;
@@ -1070,122 +1079,122 @@ module game_fsm (
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_01_MIN_P2;
       game_state.CHECK_BOX_01_MIN_P2:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box01;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_01_MIN_P2;
       game_state.MAKE_BOX_01_MIN_P2:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box01;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_02_MIN_P2;
       game_state.CHECK_BOX_02_MIN_P2:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box02;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_02_MIN_P2;
       game_state.MAKE_BOX_02_MIN_P2:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box02;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_10_MIN_P2;
       game_state.CHECK_BOX_10_MIN_P2:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box10;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_10_MIN_P2;
       game_state.MAKE_BOX_10_MIN_P2:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box10;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_11_MIN_P2;
       game_state.CHECK_BOX_11_MIN_P2:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box11;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_11_MIN_P2;
       game_state.MAKE_BOX_11_MIN_P2:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box11;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_12_MIN_P2;
       game_state.CHECK_BOX_12_MIN_P2:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box12;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_12_MIN_P2;
       game_state.MAKE_BOX_12_MIN_P2:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box12;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_20_MIN_P2;
       game_state.CHECK_BOX_20_MIN_P2:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box20;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_20_MIN_P2;
       game_state.MAKE_BOX_20_MIN_P2:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box20;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_21_MIN_P2;
       game_state.CHECK_BOX_21_MIN_P2:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box21;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_21_MIN_P2;
       game_state.MAKE_BOX_21_MIN_P2:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box21;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_BOX_22_MIN_P2;
       game_state.CHECK_BOX_22_MIN_P2:
+        rb = regfile_addr.temp1;
         we = 1;
         ra = regfile_addr.box22;
-        rb = regfile_addr.temp1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.MAKE_BOX_22_MIN_P2;
       game_state.MAKE_BOX_22_MIN_P2:
+        rb = regfile_addr.temp2;
         we = rb_data[0];
         ra = regfile_addr.box22;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp1;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.CHECK_SMALL_PIECES_P2_PT1;
       game_state.CHECK_SMALL_PIECES_P2_PT1:
-        we = 1;
         rb = regfile_addr.pieces_remaining_small_p2;
-        rc = regfile_addr.temp2;
         asel = 1;
+        we = 1;
+        rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_SMALL_PIECES_P2_PT2;
       game_state.CHECK_SMALL_PIECES_P2_PT2:
@@ -1199,17 +1208,17 @@ module game_fsm (
         }
       game_state.CHECK_SMALL_PIECES_P2_PT3:
         we = 1;
+        bsel = 1;
         literal = 10;
         ra = regfile_addr.temp1;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.sub_16;
         game_state.d = game_state.CHECK_SMALL_PIECES_P2_PT4;
       game_state.CHECK_SMALL_PIECES_P2_PT4:
         we = 1;
+        bsel = 1;
         literal = -2;
         ra = regfile_addr.temp2;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_SMALL_PIECES_P2_PT5;
@@ -1223,10 +1232,10 @@ module game_fsm (
           game_state.d = game_state.SELECT_BOX_P2;
         }
       game_state.CHECK_MED_PIECES_P2_PT1:
-        we = 1;
         rb = regfile_addr.pieces_remaining_med_p2;
-        rc = regfile_addr.temp2;
         asel = 1;
+        we = 1;
+        rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_MED_PIECES_P2_PT2;
       game_state.CHECK_MED_PIECES_P2_PT2:
@@ -1240,17 +1249,17 @@ module game_fsm (
         }
       game_state.CHECK_MED_PIECES_P2_PT3:
         we = 1;
+        bsel = 1;
         literal = 16;
         ra = regfile_addr.temp1;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.sub_16;
         game_state.d = game_state.CHECK_MED_PIECES_P2_PT4;
       game_state.CHECK_MED_PIECES_P2_PT4:
         we = 1;
+        bsel = 1;
         literal = -2;
         ra = regfile_addr.temp2;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_MED_PIECES_P2_PT5;
@@ -1264,10 +1273,10 @@ module game_fsm (
           game_state.d = game_state.SELECT_BOX_P2;
         }
       game_state.CHECK_LARGE_PIECES_P2_PT1:
-        we = 1;
         rb = regfile_addr.pieces_remaining_large_p2;
-        rc = regfile_addr.temp2;
         asel = 1;
+        we = 1;
+        rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_LARGE_PIECES_P2_PT2;
       game_state.CHECK_LARGE_PIECES_P2_PT2:
@@ -1281,17 +1290,17 @@ module game_fsm (
         }
       game_state.CHECK_LARGE_PIECES_P2_PT3:
         we = 1;
+        bsel = 1;
         literal = 22;
         ra = regfile_addr.temp1;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.sub_16;
         game_state.d = game_state.CHECK_LARGE_PIECES_P2_PT4;
       game_state.CHECK_LARGE_PIECES_P2_PT4:
         we = 1;
+        bsel = 1;
         literal = -2;
         ra = regfile_addr.temp2;
-        bsel = 1;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.lt_16;
         game_state.d = game_state.CHECK_LARGE_PIECES_P2_PT5;
@@ -1307,115 +1316,124 @@ module game_fsm (
       game_state.SELECT_BOX_P2:
         if(button_1) {
           we = 1;
-          ra = regfile_addr.box00;
+          bsel = 1;
+          literal = regfile_addr.box00;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P2;
         }
         if(button_2) {
           we = 1;
-          ra = regfile_addr.box01;
+          bsel = 1;
+          literal = regfile_addr.box01;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P2;
         }
         if(button_3) {
           we = 1;
-          ra = regfile_addr.box02;
+          bsel = 1;
+          literal = regfile_addr.box02;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P2;
         }
         if(button_4) {
           we = 1;
-          ra = regfile_addr.box10;
+          bsel = 1;
+          literal = regfile_addr.box10;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P2;
         }
         if(button_5) {
           we = 1;
-          ra = regfile_addr.box11;
+          bsel = 1;
+          literal = regfile_addr.box11;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P2;
         }
         if(button_6) {
           we = 1;
-          ra = regfile_addr.box12;
+          bsel = 1;
+          literal = regfile_addr.box12;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P2;
         }
         if(button_7) {
           we = 1;
-          ra = regfile_addr.box20;
+          bsel = 1;
+          literal = regfile_addr.box20;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P2;
         }
         if(button_8) {
           we = 1;
-          ra = regfile_addr.box21;
+          bsel = 1;
+          literal = regfile_addr.box21;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P2;
         }
         if(button_9) {
           we = 1;
-          ra = regfile_addr.box22;
+          bsel = 1;
+          literal = regfile_addr.box22;
           rc = regfile_addr.box_addr;
-          alufn = alu_op_code.t_a_16;
+          alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_SIZE_P2;
         }
       game_state.SELECT_SIZE_P2:
         if(button_a) {
-          we = 1;
           rb = regfile_addr.pieces_remaining_small_p2;
-          rc = regfile_addr.temp1;
           asel = 1;
+          we = 1;
+          rc = regfile_addr.temp1;
           alufn = alu_op_code.lt_16;
           game_state.d = game_state.CHECK_SIZE_SMALL_P2;
         }
         if(button_b) {
-          we = 1;
           rb = regfile_addr.pieces_remaining_med_p2;
-          rc = regfile_addr.temp1;
           asel = 1;
+          we = 1;
+          rc = regfile_addr.temp1;
           alufn = alu_op_code.lt_16;
           game_state.d = game_state.CHECK_SIZE_MED_P2;
         }
         if(button_c) {
-          we = 1;
           rb = regfile_addr.pieces_remaining_large_p2;
-          rc = regfile_addr.temp1;
           asel = 1;
+          we = 1;
+          rc = regfile_addr.temp1;
           alufn = alu_op_code.lt_16;
           game_state.d = game_state.CHECK_SIZE_LARGE_P2;
         }
         if(button_d) {
-          we = 1;
           rb = 0;
-          rc = regfile_addr.box_addr;
           asel = 1;
+          we = 1;
+          rc = regfile_addr.box_addr;
           alufn = alu_op_code.t_a_16;
           game_state.d = game_state.SELECT_BOX_P2;
         }
       game_state.CHECK_SIZE_SMALL_P2:
         rb = regfile_addr.temp1;
         if(rb_data == 0) {
-          we = rb_data[0];
-          literal = 10;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 10;
           rc = regfile_addr.selected_size_p2;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_BOX_P2;
         } else {
-          we = rb_data[0];
-          literal = 10;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 10;
           rc = regfile_addr.selected_size_p2;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.VALIDATE_PLACEMENT_P2_PT1;
@@ -1423,18 +1441,18 @@ module game_fsm (
       game_state.CHECK_SIZE_MED_P2:
         rb = regfile_addr.temp1;
         if(rb_data == 0) {
-          we = rb_data[0];
-          literal = 16;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 16;
           rc = regfile_addr.selected_size_p2;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_BOX_P2;
         } else {
-          we = rb_data[0];
-          literal = 16;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 16;
           rc = regfile_addr.selected_size_p2;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.VALIDATE_PLACEMENT_P2_PT1;
@@ -1442,41 +1460,41 @@ module game_fsm (
       game_state.CHECK_SIZE_LARGE_P2:
         rb = regfile_addr.temp1;
         if(rb_data == 0) {
-          we = rb_data[0];
-          literal = 22;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 22;
           rc = regfile_addr.selected_size_p2;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.SELECT_BOX_P2;
         } else {
-          we = rb_data[0];
-          literal = 22;
-          bsel = 1;
           rb = regfile_addr.temp1;
+          we = rb_data[0];
+          bsel = 1;
+          literal = 22;
           rc = regfile_addr.selected_size_p2;
           alufn = alu_op_code.t_b_16;
           game_state.d = game_state.VALIDATE_PLACEMENT_P2_PT1;
         }
       game_state.VALIDATE_PLACEMENT_P2_PT1:
+        rb = regfile_addr.box_addr;
         we = 1;
         ra = rb_data[4:0];
-        rb = regfile_addr.box_addr;
         rc = regfile_addr.temp2;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.VALIDATE_PLACEMENT_P2_PT2;
       game_state.VALIDATE_PLACEMENT_P2_PT2:
+        rb = regfile_addr.temp2;
         we = 1;
         ra = regfile_addr.selected_size_p2;
-        rb = regfile_addr.temp2;
         rc = regfile_addr.temp3;
         alufn = alu_op_code.sub_16;
         game_state.d = game_state.VALIDATE_PLACEMENT_P2_PT3;
       game_state.VALIDATE_PLACEMENT_P2_PT3:
         we = 1;
+        bsel = 1;
         literal = 2;
         ra = regfile_addr.temp3;
-        bsel = 1;
         rc = regfile_addr.temp3;
         alufn = alu_op_code.ltq_16;
         game_state.d = game_state.VALIDATE_PLACEMENT_P2_PT4;
@@ -1490,38 +1508,38 @@ module game_fsm (
           game_state.d = game_state.SELECT_BOX_P2;
         }
       game_state.PLACE_PIECE_P2:
-        we = 1;
-        ra = regfile_addr.box_addr;
         rb = regfile_addr.selected_size_p2;
+        we = 1;
         ra2sel = 1;
+        ra = regfile_addr.box_addr;
         alufn = alu_op_code.t_b_16;
         game_state.d = game_state.COMPLETE_ROW_0_CHECK_BOX_00_P2;
       game_state.COMPLETE_ROW_0_CHECK_BOX_00_P2:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box00;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_ROW_0_CHECK_BOX_01_P2;
       game_state.COMPLETE_ROW_0_CHECK_BOX_01_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box01;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_1_CHECK_BOX_10_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box01;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_0_CHECK_BOX_02_P2;
@@ -1529,50 +1547,50 @@ module game_fsm (
       game_state.COMPLETE_ROW_0_CHECK_BOX_02_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_1_CHECK_BOX_10_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P2_WON;
         }
       game_state.COMPLETE_ROW_1_CHECK_BOX_10_P2:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box10;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_ROW_1_CHECK_BOX_11_P2;
       game_state.COMPLETE_ROW_1_CHECK_BOX_11_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_2_CHECK_BOX_20_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_1_CHECK_BOX_12_P2;
@@ -1580,50 +1598,50 @@ module game_fsm (
       game_state.COMPLETE_ROW_1_CHECK_BOX_12_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box12;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_2_CHECK_BOX_20_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box12;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P2_WON;
         }
       game_state.COMPLETE_ROW_2_CHECK_BOX_20_P2:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box20;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_ROW_2_CHECK_BOX_21_P2;
       game_state.COMPLETE_ROW_2_CHECK_BOX_21_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box21;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_0_CHECK_BOX_00_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box21;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_ROW_2_CHECK_BOX_22_P2;
@@ -1631,68 +1649,68 @@ module game_fsm (
       game_state.COMPLETE_ROW_2_CHECK_BOX_22_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_0_CHECK_BOX_00_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P2_WON;
         }
       game_state.COMPLETE_COL_0_CHECK_BOX_00_P2:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box00;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_COL_0_CHECK_BOX_01_P2;
       game_state.COMPLETE_COL_1_CHECK_BOX_10_P2:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box10;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_COL_1_CHECK_BOX_11_P2;
       game_state.COMPLETE_COL_2_CHECK_BOX_20_P2:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box20;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_COL_2_CHECK_BOX_21_P2;
       game_state.COMPLETE_COL_0_CHECK_BOX_01_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box01;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_1_CHECK_BOX_10_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box01;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_0_CHECK_BOX_02_P2;
@@ -1700,20 +1718,20 @@ module game_fsm (
       game_state.COMPLETE_COL_1_CHECK_BOX_11_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_2_CHECK_BOX_20_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_1_CHECK_BOX_12_P2;
@@ -1721,20 +1739,20 @@ module game_fsm (
       game_state.COMPLETE_COL_2_CHECK_BOX_21_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box21;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_0_CHECK_BOX_00_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box21;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_2_CHECK_BOX_22_P2;
@@ -1742,20 +1760,20 @@ module game_fsm (
       game_state.COMPLETE_COL_0_CHECK_BOX_02_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_1_CHECK_BOX_10_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P2_WON;
@@ -1763,20 +1781,20 @@ module game_fsm (
       game_state.COMPLETE_COL_1_CHECK_BOX_12_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box12;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_COL_2_CHECK_BOX_20_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box12;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P2_WON;
@@ -1784,50 +1802,50 @@ module game_fsm (
       game_state.COMPLETE_COL_2_CHECK_BOX_22_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_0_CHECK_BOX_00_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P2_WON;
         }
       game_state.COMPLETE_DIA_0_CHECK_BOX_00_P2:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box00;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_DIA_0_CHECK_BOX_11_P2;
       game_state.COMPLETE_DIA_0_CHECK_BOX_11_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_1_CHECK_BOX_20_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_0_CHECK_BOX_22_P2;
@@ -1835,50 +1853,50 @@ module game_fsm (
       game_state.COMPLETE_DIA_0_CHECK_BOX_22_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_1_CHECK_BOX_20_P2;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box22;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P2_WON;
         }
       game_state.COMPLETE_DIA_1_CHECK_BOX_20_P2:
+        rb = regfile_addr.temp4;
         we = 1;
+        bsel = 1;
         literal = 3;
         ra = regfile_addr.box20;
-        bsel = 1;
-        rb = regfile_addr.temp4;
         rc = regfile_addr.temp4;
         alufn = alu_op_code.mod_16;
         game_state.d = game_state.COMPLETE_DIA_1_CHECK_BOX_11_P2;
       game_state.COMPLETE_DIA_1_CHECK_BOX_11_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.SELECT_BOX_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box11;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.COMPLETE_DIA_1_CHECK_BOX_02_P2;
@@ -1886,20 +1904,20 @@ module game_fsm (
       game_state.COMPLETE_DIA_1_CHECK_BOX_02_P2:
         rb = regfile_addr.temp4;
         if(rb_data[0] == 1) {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.SELECT_BOX_P1;
         } else {
+          rb = regfile_addr.temp4;
           we = 1;
+          bsel = 1;
           literal = 3;
           ra = regfile_addr.box02;
-          bsel = 1;
-          rb = regfile_addr.temp4;
           rc = regfile_addr.temp4;
           alufn = alu_op_code.mod_16;
           game_state.d = game_state.HAS_P2_WON;
@@ -1915,28 +1933,28 @@ module game_fsm (
         }
       game_state.DECLARE_P1_WINNER:
         finished = 1;
-        we = 1;
-        literal = 1;
         finished = 1;
+        we = 1;
         bsel = 1;
+        literal = 1;
         rc = regfile_addr.winner;
         alufn = alu_op_code.t_b_16;
         game_state.d = game_state.END;
       game_state.DECLARE_P2_WINNER:
         finished = 1;
-        we = 1;
-        literal = 2;
         finished = 1;
+        we = 1;
         bsel = 1;
+        literal = 2;
         rc = regfile_addr.winner;
         alufn = alu_op_code.t_b_16;
         game_state.d = game_state.END;
       game_state.DECLARE_DRAW:
         finished = 1;
-        we = 1;
         finished = 1;
-        rc = regfile_addr.winner;
         asel = 1;
+        we = 1;
+        rc = regfile_addr.winner;
         alufn = alu_op_code.t_a_16;
         game_state.d = game_state.END;
       game_state.END:

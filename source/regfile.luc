@@ -15,7 +15,7 @@ module regfile (
     input data[16],
     
     output ra_data[16],
-    output rb_data[16],
+    output rb_data[16]
   ) {
 
   sig ra_data_s[16];
@@ -69,12 +69,6 @@ module regfile (
     rb_data = 0;
     ra_data_s = 0;
     debug_out = 0;
-
-
-    board_state = {{box00.q, box01.q, box02.q}, {box10.q, box11.q, box12.q}, {box20.q, box21.q, box22.q}};
-    pieces_remaining_p1 = 0;
-    pieces_remaining_p2 = 0;
-    winner = winner_dff.q;
 
     case(ra) {
       0:
