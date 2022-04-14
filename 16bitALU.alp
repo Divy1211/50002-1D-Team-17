@@ -24,7 +24,7 @@
     <src>seven_seg.luc</src>
     <constraint lib="true">alchitry.acf</constraint>
     <constraint lib="true">io.acf</constraint>
-    <constraint lib="true">au.xdc</constraint>
     <constraint>br_io_pins.acf</constraint>
+    <constraint>new_constraints.xdc</constraint>
   </files>
 </project>
