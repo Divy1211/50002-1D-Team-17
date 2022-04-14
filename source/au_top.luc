@@ -27,7 +27,6 @@ module au_top (
       fsm state = {START, MANUAL, AUTO};
       wave wave1;                                                               // fancy wave effect
       multi_seven_seg seven_seg_display;
-      game_fsm_test test;
     }
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
@@ -36,6 +35,7 @@ module au_top (
   
   .clk(cclk.out), .rst(rst) {
     keypad_driver keypad;
+     game_fsm_test test;
   }
 
   always {
