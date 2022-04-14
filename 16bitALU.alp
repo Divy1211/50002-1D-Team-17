@@ -6,6 +6,7 @@
     <src>shifter.luc</src>
     <src>custom_clk.luc</src>
     <component>wave.luc</component>
+    <src>led_state.luc</src>
     <src>op_code_enum.luc</src>
     <src>multi_seven_seg.luc</src>
     <component>counter.luc</component>
@@ -24,5 +25,6 @@
     <constraint lib="true">alchitry.acf</constraint>
     <constraint lib="true">io.acf</constraint>
     <constraint lib="true">au.xdc</constraint>
+    <constraint>br_io_pins.acf</constraint>
   </files>
 </project>

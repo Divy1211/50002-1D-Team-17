@@ -1,0 +1,28 @@
+module led_state (
+    input clk,
+    input rst,
+    
+    input write_x[4],
+    input write_y[4],
+    
+    input we,
+    input new_state[2],
+    
+    output data_out[256][2]
+  ) {
+  
+  .clk(clk), .rst(rst) {
+    dff led_state[256][2];
+  }
+  
+  sig in_index[8];
+  
+  always {
+    in_index = write_y << 4 + write_x;
+    
+    if(we) {
+      led_state.d[in_index] = new_state;
+    }
+    data_out = led_state.q; 
+  }
+}

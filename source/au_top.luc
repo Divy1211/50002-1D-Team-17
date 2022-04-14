@@ -12,7 +12,11 @@ module au_top (
     output io_seg [8],      // 7-segment LEDs on IO Shield
     output io_sel [4],      // Digit select on IO Shield
     input io_button [5],    // 5 buttons on IO Shield
-    input io_dip [3][8]     // DIP switches on IO Shield
+    input io_dip [3][8],     // DIP switches on IO Shield
+
+    output outled,
+    output keypadrow[4],
+    input keypadcol[4]
   ) {
   
   sig rst;                  // reset signal
@@ -34,6 +38,9 @@ module au_top (
   }
 
   always {
+    outled = 0;
+    keypadrow = 0;
+    
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;
     
