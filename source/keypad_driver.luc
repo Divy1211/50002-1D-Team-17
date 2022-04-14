@@ -121,7 +121,7 @@ module keypad_driver (
         driver.d = driver.DETECT_ROW4_PT2;
       driver.DETECT_ROW4_PT2:
         out_row = 4b0001;
-        if(!in_col_dff.q) {
+        if(|in_col_dff.q) {
           button_asterisk = in_col_dff.q[3];
           button_0        = in_col_dff.q[2];
           button_hash     = in_col_dff.q[1];
