@@ -121,11 +121,15 @@ module keypad_driver (
         driver.d = driver.DETECT_ROW4_PT2;
       driver.DETECT_ROW4_PT2:
         out_row = 4b0001;
-        button_asterisk = in_col_dff.q[3];
-        button_0        = in_col_dff.q[2];
-        button_hash     = in_col_dff.q[1];
-        button_d        = in_col_dff.q[0];
-        if(cycles_c.value >= 1023) {
+        if(!in_col_dff.q) {
+          button_asterisk = in_col_dff.q[3];
+          button_0        = in_col_dff.q[2];
+          button_hash     = in_col_dff.q[1];
+          button_d        = in_col_dff.q[0];
+          if(cycles_c.value >= 1023) {
+            driver.d = driver.DETECT_COL;
+          }
+        } else {
           driver.d = driver.DETECT_COL;
         }
       default:
