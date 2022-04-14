@@ -75,9 +75,7 @@ module keypad_driver (
           button_2 = in_col_dff.q[2];
           button_3 = in_col_dff.q[1];
           button_a = in_col_dff.q[0];
-          if(cycles_c.value >= 1023) {
-            driver.d = driver.DETECT_COL;
-          }
+          driver.d = driver.DETECT_COL;
         } else {
           driver.d = driver.DETECT_ROW2_PT1;
         }
@@ -92,9 +90,7 @@ module keypad_driver (
           button_5 = in_col_dff.q[2];
           button_6 = in_col_dff.q[1];
           button_b = in_col_dff.q[0];
-          if(cycles_c.value >= 1023) {
-            driver.d = driver.DETECT_COL;
-          }
+          driver.d = driver.DETECT_COL;
         } else {
           driver.d = driver.DETECT_ROW3_PT1;
         }
@@ -109,9 +105,7 @@ module keypad_driver (
           button_8 = in_col_dff.q[2];
           button_9 = in_col_dff.q[1];
           button_c = in_col_dff.q[0];
-          if(cycles_c.value >= 1023) {
-            driver.d = driver.DETECT_COL;
-          }
+          driver.d = driver.DETECT_COL;
         } else {
           driver.d = driver.DETECT_ROW4_PT1;
         }
@@ -126,9 +120,7 @@ module keypad_driver (
           button_0        = in_col_dff.q[2];
           button_hash     = in_col_dff.q[1];
           button_d        = in_col_dff.q[0];
-          if(cycles_c.value >= 1023) {
-            driver.d = driver.DETECT_COL;
-          }
+          driver.d = driver.DETECT_COL;
         } else {
           driver.d = driver.DETECT_COL;
         }

@@ -34,7 +34,7 @@ module au_top (
     reset_conditioner reset_cond;
   }
   
-  .clk(cclk.value), .rst(rst) {
+  .clk(cclk.out), .rst(rst) {
     keypad_driver keypad;
   }
 
