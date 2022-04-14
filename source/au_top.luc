@@ -22,6 +22,7 @@ module au_top (
       custom_clk cclk;
       fsm state = {START, MANUAL, AUTO};
       wave wave1;                                                               // fancy wave effect
+      multi_seven_seg seven_seg_display;
     }
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
@@ -59,8 +60,12 @@ module au_top (
         test.io_button = io_button;
         test.io_dip = io_dip;
       
-        io_led = test.io_led;
-        io_seg = test.io_seg;
-        io_sel = test.io_sel;
+        seven_seg_display.values[0] = test.display[3:0];
+        seven_seg_display.values[1] = test.display[7:4];
+        seven_seg_display.values[2] = test.display[11:8];
+        seven_seg_display.values[3] = test.display[15:12];
+
+        io_seg = seven_seg_display.seg;
+        io_sel = seven_seg_display.sel;
   }
 }

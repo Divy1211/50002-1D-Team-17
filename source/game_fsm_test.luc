@@ -6,17 +6,13 @@ module game_fsm_test (
     input io_dip [3][8],     // DIP switches on IO Shield
 
     output io_led [3][8],   // LEDs on IO Shield
-    output io_seg [8],      // 7-segment LEDs on IO Shield
-    output io_sel [4],         // Digit select on IO Shield
-    output state[8]
+    
+    output display[16]
   ) {
   
   .clk(clk), .rst(rst) {
-      
     game_fsm game;
     regfile regf;
-
-    multi_seven_seg seven_seg_display;
   }
   alu aluTest;
 
@@ -63,6 +59,8 @@ module game_fsm_test (
 
     game.rb_data = regf.rb_data;
 
+    display = 0;
+
     if(io_button[0]) {
       case(io_dip[1][3:0]) {
         0:
@@ -99,28 +97,13 @@ module game_fsm_test (
           game.button_hash = 1;
       }
     }
-    seven_seg_display.values[0] = 22;
-    seven_seg_display.values[1] = 22;
-    seven_seg_display.values[2] = 22;
-    seven_seg_display.values[3] = 22;
     
     case(io_dip[2][0]) {
       0:
-        seven_seg_display.values[0] = game.state[3:0];
-        seven_seg_display.values[1] = game.state[7:4];
-        seven_seg_display.values[2] = 0;
-        seven_seg_display.values[3] = 0;
+        display = game.state;
       1:
         regf.debug_in = io_dip[0][4:0];
-        seven_seg_display.values[0] = regf.debug_out[3:0];
-        seven_seg_display.values[1] = regf.debug_out[7:4];
-        seven_seg_display.values[2] = regf.debug_out[11:8];
-        seven_seg_display.values[3] = regf.debug_out[15:12];
+        display = regf.debug_out;
     }
-
-    io_seg = seven_seg_display.seg;
-    io_sel = seven_seg_display.sel;
-    io_led = {8b0, 8b0, game.state};
-    state = game.state;
   }
 }
