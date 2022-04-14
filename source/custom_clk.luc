@@ -9,7 +9,7 @@ module custom_clk (
   }
 
   always {
-    out = a.value[25];
+    out = a.value[23];
   }
 }
  
