@@ -40,9 +40,6 @@ module au_top (
   }
 
   always {
-    outled = 0;
-    keypadrow = keypad.out_row;
-    keypad.in_col = keypadcol;
     
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;
@@ -59,6 +56,10 @@ module au_top (
     seven_seg_display.values[1] = 0;
     seven_seg_display.values[2] = 0;
     seven_seg_display.values[3] = 0;
+
+    outled = 0;
+    keypadrow = keypad.out_row;
+    keypad.in_col = keypadcol;
 
     test.io_button = 0;
     test.io_dip = {8b0, 8b0, 8b0};
@@ -93,24 +94,24 @@ module au_top (
         test.io_button = io_button;
         test.io_dip = io_dip;
 
-          test.button_0 = keypad.button_0;
-          test.button_1 = keypad.button_1;
-          test.button_2 = keypad.button_2;
-          test.button_3 = keypad.button_3;
-          test.button_4 = keypad.button_4;
-          test.button_5 = keypad.button_5;
-          test.button_6 = keypad.button_6;
-          test.button_7 = keypad.button_7;
-          test.button_8 = keypad.button_8;
-          test.button_9 = keypad.button_9;
+        test.button_0 = keypad.button_0;
+        test.button_1 = keypad.button_1;
+        test.button_2 = keypad.button_2;
+        test.button_3 = keypad.button_3;
+        test.button_4 = keypad.button_4;
+        test.button_5 = keypad.button_5;
+        test.button_6 = keypad.button_6;
+        test.button_7 = keypad.button_7;
+        test.button_8 = keypad.button_8;
+        test.button_9 = keypad.button_9;
 
-          test.button_a = keypad.button_a;
-          test.button_b = keypad.button_b;
-          test.button_c = keypad.button_c;
-          test.button_d = keypad.button_d;
+        test.button_a = keypad.button_a;
+        test.button_b = keypad.button_b;
+        test.button_c = keypad.button_c;
+        test.button_d = keypad.button_d;
 
-          test.button_asterisk = keypad.button_asterisk;
-          test.button_hash = keypad.button_hash;
+        test.button_asterisk = keypad.button_asterisk;
+        test.button_hash = keypad.button_hash;
 
         seven_seg_display.values[0] = test.display[3:0];
         seven_seg_display.values[1] = test.display[7:4];
@@ -119,5 +120,8 @@ module au_top (
 
         io_seg = seven_seg_display.seg;
         io_sel = seven_seg_display.sel;
+
+        io_led[2][3:0] = keypad.out_row;
+        io_led[1][3:0] = keypad.out_col;
   }
 }
