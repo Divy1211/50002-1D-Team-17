@@ -4,6 +4,7 @@
     <src>multiplier.luc</src>
     <src>game_fsm_test.luc</src>
     <src>shifter.luc</src>
+    <src>custom_clk.luc</src>
     <component>wave.luc</component>
     <src>op_code_enum.luc</src>
     <src>multi_seven_seg.luc</src>

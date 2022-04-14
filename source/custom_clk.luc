@@ -1,0 +1,15 @@
+module custom_clk (
+    input clk,  // clock
+    input rst,  // reset
+    output out
+  ) {
+  
+  .clk(clk), .rst(rst) {
+    counter a(#SIZE(32));
+  }
+
+  always {
+    out = a.value[25];
+  }
+}
+ 

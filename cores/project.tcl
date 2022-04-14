@@ -1,0 +1,2 @@
+cd "C:/Users/LENOVO PC/My Stuff/SUTD/T4/50002-1D-Team-17/cores"
+create_project managed_ip_project "C:/Users/LENOVO PC/My Stuff/SUTD/T4/50002-1D-Team-17/cores/managed_ip_project" -part xc7a35tftg256-1 -ip
