@@ -7,7 +7,7 @@ module game_fsm_test (
 
     output io_led [3][8],   // LEDs on IO Shield
     output io_seg [8],      // 7-segment LEDs on IO Shield
-    output io_sel [4]       // Digit select on IO Shield
+    output io_sel [4],         // Digit select on IO Shield
     output state[8]
   ) {
   
@@ -106,6 +106,11 @@ module game_fsm_test (
     seven_seg_display.values[3] = 22;
     
     case(io_dip[2][3:0]) {
+      0:
+        seven_seg_display.values[0] = game.state[3:0];
+        seven_seg_display.values[1] = game.state[7:4];
+        seven_seg_display.values[2] = game.state[11:8];
+        seven_seg_display.values[3] = game.state[15:12];
       1:
         temp1 = regf.board_state[0][0];
         seven_seg_display.values[0] = temp1[3:0];
