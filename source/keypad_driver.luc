@@ -63,7 +63,6 @@ module keypad_driver (
         out_row = 4b1111;
         if(|in_col_dff.q) {
           driver.d = driver.DETECT_ROW1_PT1;
-          cycles_c.rst = 1;
         }
       driver.DETECT_ROW1_PT1:
         out_row = 4b1000;
