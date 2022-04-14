@@ -60,7 +60,7 @@ module game_fsm_test (
 
     regf.data = aluTest.out;
 
-
+    regf.debug_in = 0;
 
     game.rb_data = regf.rb_data;
 
@@ -105,12 +105,12 @@ module game_fsm_test (
     seven_seg_display.values[2] = 22;
     seven_seg_display.values[3] = 22;
     
-    case(io_dip[2][3:0]) {
+    case(io_dip[2][4:0]) {
       0:
         seven_seg_display.values[0] = game.state[3:0];
         seven_seg_display.values[1] = game.state[7:4];
-        seven_seg_display.values[2] = game.state[11:8];
-        seven_seg_display.values[3] = game.state[15:12];
+        seven_seg_display.values[2] = 0;
+        seven_seg_display.values[3] = 0;
       1:
         temp1 = regf.board_state[0][0];
         seven_seg_display.values[0] = temp1[3:0];
@@ -165,7 +165,15 @@ module game_fsm_test (
         seven_seg_display.values[1] = temp1[7:4];
         seven_seg_display.values[2] = temp1[11:8];
         seven_seg_display.values[3] = temp1[15:12];
+      
+      16:
+        regf.debug_in = io_dip[2][9:5];
+        seven_seg_display.values[0] = regf.debug_out[3:0];
+        seven_seg_display.values[1] = regf.debug_out[7:4];
+        seven_seg_display.values[2] = regf.debug_out[11:8];
+        seven_seg_display.values[3] = regf.debug_out[15:12];
     }
+
     io_seg = seven_seg_display.seg;
     io_sel = seven_seg_display.sel;
     io_led = {8b0, 8b0, game.state};

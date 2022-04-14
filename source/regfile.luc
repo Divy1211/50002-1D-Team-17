@@ -5,6 +5,9 @@ module regfile (
     input ra[5],
     input rb[5],
     input rc[5],
+
+    input debug_in[5],
+    output debug_out[16],
     
     input ra2sel,
 
@@ -317,6 +320,73 @@ module regfile (
       temp11.d = temp11.q;
       temp12.d = temp12.q;
       temp13.d = temp13.q;
+    }
+
+    case(debug_in) {
+      0:
+        debug_out = box00.q;
+      1:
+        debug_out = box01.q;
+      2:
+        debug_out = box02.q;
+      3:
+        debug_out = box10.q;
+      4:
+        debug_out = box11.q;
+      5:
+        debug_out = box12.q;
+      6:
+        debug_out = box20.q;
+      7:
+        debug_out = box21.q;
+      8:
+        debug_out = box22.q;
+      9:
+        debug_out = pieces_remaining_small_p1.q;
+      10:
+        debug_out = pieces_remaining_small_p2.q;
+      11:
+        debug_out = pieces_remaining_med_p1.q;
+      12:
+        debug_out = pieces_remaining_med_p2.q;
+      13:
+        debug_out = pieces_remaining_large_p1.q;
+      14:
+        debug_out = pieces_remaining_large_p2.q;
+      15:
+        debug_out = selected_size_p1.q;
+      16:
+        debug_out = selected_size_p2.q;
+      17:
+        debug_out = winner_dff.q;
+      18:
+        debug_out = box_addr.q;
+      19:
+        debug_out = temp1.q;
+      20:
+        debug_out = temp2.q;
+      21:
+        debug_out = temp3.q;
+      22:
+        debug_out = temp4.q;
+      23:
+        debug_out = temp5.q;
+      24:
+        debug_out = temp6.q;
+      25:
+        debug_out = temp7.q;
+      26:
+        debug_out = temp8.q;
+      27:
+        debug_out = temp9.q;
+      28:
+        debug_out = temp10.q;
+      29:
+        debug_out = temp11.q;
+      30:
+        debug_out = temp12.q;
+      31:
+        debug_out = temp13.q;
     }
   }
 }
