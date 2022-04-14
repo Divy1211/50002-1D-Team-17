@@ -4,8 +4,6 @@ module game_fsm_test (
 
     input io_button [5],    // 5 buttons on IO Shield
     input io_dip [3][8],     // DIP switches on IO Shield
-
-    output io_led [3][8],   // LEDs on IO Shield
     
     output display[16]
   ) {
@@ -16,7 +14,6 @@ module game_fsm_test (
   }
   alu aluTest;
 
-  sig temp1[16];
   always {
     game.button_0 = 0;
     game.button_1 = 0;
