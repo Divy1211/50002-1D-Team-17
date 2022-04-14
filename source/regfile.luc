@@ -34,14 +34,14 @@ module regfile (
     dff box21[16](#INIT(0));
     dff box22[16](#INIT(0));
 
-    dff pieces_remaining_small_p1[16](#INIT(0));
-    dff pieces_remaining_small_p2[16](#INIT(0));
+    dff pieces_remaining_small_p1[16](#INIT(2));
+    dff pieces_remaining_small_p2[16](#INIT(2));
 
-    dff pieces_remaining_med_p1[16](#INIT(0));
-    dff pieces_remaining_med_p2[16](#INIT(0));
+    dff pieces_remaining_med_p1[16](#INIT(2));
+    dff pieces_remaining_med_p2[16](#INIT(2));
 
-    dff pieces_remaining_large_p1[16](#INIT(0));
-    dff pieces_remaining_large_p2[16](#INIT(0));
+    dff pieces_remaining_large_p1[16](#INIT(2));
+    dff pieces_remaining_large_p2[16](#INIT(2));
 
     dff selected_size_p1[16](#INIT(0));
     dff selected_size_p2[16](#INIT(0));

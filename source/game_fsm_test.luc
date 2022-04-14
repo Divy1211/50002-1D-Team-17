@@ -15,8 +15,11 @@ module game_fsm_test (
     game_fsm game;
     regfile regf;
 
+
     multi_seven_seg seven_seg_display;
   }
+  alu aluTest;
+
   sig temp1[16];
   always {
     game.button_0 = 0;
@@ -45,7 +48,18 @@ module game_fsm_test (
     regf.rc = game.rc;
     regf.ra2sel = game.ra2sel;
     regf.we = game.we;
-    regf.data = game.literal;
+
+    aluTest.a = regf.ra_data;
+    aluTest.b = regf.rb_data;
+    aluTest.asel = game.asel;
+    aluTest.bsel = game.bsel;
+    aluTest.wdsel = game.wdsel;
+    aluTest.alufn = game.alufn;
+    aluTest.literal = game.literal;
+
+    regf.data = aluTest.out;
+
+
 
     game.rb_data = regf.rb_data;
 
