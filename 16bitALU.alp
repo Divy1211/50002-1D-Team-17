@@ -14,6 +14,7 @@
     <src>regfile_address_enum.luc</src>
     <src>boolean.luc</src>
     <src top="true">au_top.luc</src>
+    <src>keypad_driver.luc</src>
     <src>alu.luc</src>
     <src>regfile.luc</src>
     <component>reset_conditioner.luc</component>

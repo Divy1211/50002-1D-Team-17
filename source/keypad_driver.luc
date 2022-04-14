@@ -1,0 +1,126 @@
+module keypad_driver (
+    input clk,
+    input rst,
+
+    input in_col[4],
+
+    output out_row[4],
+
+    output out_col[4],
+
+    output button_0,
+    output button_1,
+    output button_2,
+    output button_3,
+    output button_4,
+    output button_5,
+    output button_6,
+    output button_7,
+    output button_8,
+    output button_9,
+
+    output button_a,
+    output button_b,
+    output button_c,
+    output button_d,
+
+    output button_asterisk,
+    output button_hash
+  ) {
+  
+  .clk(clk), .rst(rst) {
+    fsm driver = {DETECT_COL, DETECT_ROW1_PT1, DETECT_ROW1_PT2, DETECT_ROW2_PT1, DETECT_ROW2_PT2, DETECT_ROW3_PT1, DETECT_ROW3_PT2, DETECT_ROW4_PT1, DETECT_ROW4_PT2};
+    
+    dff in_col_dff[4](#INIT(0));
+  }
+
+  always {
+    button_0 = 0;
+    button_1 = 0;
+    button_2 = 0;
+    button_3 = 0;
+    button_4 = 0;
+    button_5 = 0;
+    button_6 = 0;
+    button_7 = 0;
+    button_8 = 0;
+    button_9 = 0;
+
+    button_a = 0;
+    button_b = 0;
+    button_c = 0;
+    button_d = 0;
+
+    button_asterisk = 0;
+    button_hash = 0;
+
+    in_col_dff.d = in_col;
+    out_col = in_col_dff.q;
+
+    case(driver.q) {
+      driver.DETECT_COL:
+        out_row = 4b1111;
+        if(|in_col_dff.q) {
+          driver.d = driver.DETECT_ROW1_PT1;
+        }
+      driver.DETECT_ROW1_PT1:
+        out_row = 4b1000;
+        in_col_dff.d = in_col;
+        driver.d = driver.DETECT_ROW1_PT2;
+      driver.DETECT_ROW1_PT2:
+        out_row = 4b1000;
+        if(|in_col_dff.q) {
+          button_1 = in_col_dff.q[3];
+          button_2 = in_col_dff.q[2];
+          button_3 = in_col_dff.q[1];
+          button_a = in_col_dff.q[0];
+          driver.d = driver.DETECT_COL;
+        } else {
+          driver.d = driver.DETECT_ROW2_PT1;
+        }
+      driver.DETECT_ROW2_PT1:
+        out_row = 4b0100;
+        in_col_dff.d = in_col;
+        driver.d = driver.DETECT_ROW2_PT2;
+      driver.DETECT_ROW2_PT2:
+        out_row = 4b0100;
+        if(|in_col_dff.q) {
+          button_4 = in_col_dff.q[3];
+          button_5 = in_col_dff.q[2];
+          button_6 = in_col_dff.q[1];
+          button_b = in_col_dff.q[0];
+          driver.d = driver.DETECT_COL;
+        } else {
+          driver.d = driver.DETECT_ROW3_PT1;
+        }
+      driver.DETECT_ROW3_PT1:
+        out_row = 4b0010;
+        in_col_dff.d = in_col;
+        driver.d = driver.DETECT_ROW3_PT2;
+      driver.DETECT_ROW3_PT2:
+        out_row = 4b0010;
+        if(|in_col_dff.q) {
+          button_7 = in_col_dff.q[3];
+          button_8 = in_col_dff.q[2];
+          button_9 = in_col_dff.q[1];
+          button_c = in_col_dff.q[0];
+          driver.d = driver.DETECT_COL;
+        } else {
+          driver.d = driver.DETECT_ROW4_PT1;
+        }
+      driver.DETECT_ROW4_PT1:
+        out_row = 4b0001;
+        in_col_dff.d = in_col;
+        driver.d = driver.DETECT_ROW4_PT2;
+      driver.DETECT_ROW4_PT2:
+        out_row = 4b0001;
+        button_asterisk = in_col_dff.q[3];
+        button_0        = in_col_dff.q[2];
+        button_hash     = in_col_dff.q[1];
+        button_d        = in_col_dff.q[0];
+        driver.d = driver.DETECT_COL;
+      default:
+        out_row = 4b0; // this should never run
+    }
+  }
+}
