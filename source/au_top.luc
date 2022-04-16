@@ -47,7 +47,7 @@ module au_top (
     led_out.color = main_mb.disp_out[led_out.pixel];
     outled = led_out.led;
     
-    reset_cond.in = ~(keypad.button_hash | keypad.button_asterisk); // input raw inverted reset signal
+    reset_cond.in = (keypad.button_hash | keypad.button_asterisk); // input raw inverted reset signal
     rst = reset_cond.out;
     
     usb_tx = usb_rx;        // loop serial port
