@@ -2,7 +2,6 @@ module game_fsm_test (
     input clk,  // clock
     input rst,  // reset
 
-    input io_button [5],    // 5 buttons on IO Shield
     input io_dip [3][8],     // DIP switches on IO Shield
     
     input button_0,
@@ -28,6 +27,8 @@ module game_fsm_test (
   .clk(clk), .rst(rst) {
     game_fsm game;
     regfile regf;
+
+    led_state state_l;
   }
   alu aluTest;
 
@@ -74,43 +75,6 @@ module game_fsm_test (
     game.rb_data = regf.rb_data;
 
     display = 0;
-
-    // if(io_button[0]) {
-    //   case(io_dip[1][3:0]) {
-    //     0:
-    //       game.button_0 = 1;
-    //     1:
-    //       game.button_1 = 1;
-    //     2:
-    //       game.button_2 = 1;
-    //     3:
-    //       game.button_3 = 1;
-    //     4:
-    //       game.button_4 = 1;
-    //     5:
-    //       game.button_5 = 1;
-    //     6:
-    //       game.button_6 = 1;
-    //     7:
-    //       game.button_7 = 1;
-    //     8:
-    //       game.button_8 = 1;
-    //     9:
-    //       game.button_9 = 1;
-    //     10:
-    //       game.button_a = 1;
-    //     11:
-    //       game.button_b = 1;
-    //     12:
-    //       game.button_c = 1;
-    //     13:
-    //       game.button_d = 1;
-    //     14:
-    //       game.button_asterisk = 1;
-    //     15:
-    //       game.button_hash = 1;
-    //   }
-    // }
     
     case(io_dip[2][0]) {
       0:
@@ -119,5 +83,30 @@ module game_fsm_test (
         regf.debug_in = io_dip[0][4:0];
         display = regf.debug_out;
     }
+
+    state_l.box00 = regf.box00_o;
+    state_l.box01 = regf.box01_o;
+    state_l.box02 = regf.box02_o;
+    state_l.box10 = regf.box10_o;
+    state_l.box11 = regf.box11_o;
+    state_l.box12 = regf.box12_o;
+    state_l.box20 = regf.box20_o;
+    state_l.box21 = regf.box21_o;
+    state_l.box22 = regf.box22_o;
+    state_l.pieces_remaining_small_p1 = regf.pieces_remaining_small_p1_o;
+    state_l.pieces_remaining_small_p2 = regf.pieces_remaining_small_p2_o;
+    state_l.pieces_remaining_med_p1 = regf.pieces_remaining_med_p1_o;
+    state_l.pieces_remaining_med_p2 = regf.pieces_remaining_med_p2_o;
+    state_l.pieces_remaining_large_p1 = regf.pieces_remaining_large_p1_o;
+    state_l.pieces_remaining_large_p2 = regf.pieces_remaining_large_p2_o;
+    state_l.box_addr = regf.box_addr_o;
+
+    state_l.game_state = game.state;
+
+    state_l.p1_select_box = game.p1_select_box;
+    state_l.p1_select_size = game.p1_select_size;
+    state_l.p2_select_box = game.p2_select_box;
+    state_l.p2_select_size = game.p2_select_size;
+
   }
 }

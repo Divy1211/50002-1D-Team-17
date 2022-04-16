@@ -5,9 +5,6 @@ module regfile (
     input ra[5],
     input rb[5],
     input rc[5],
-
-    input debug_in[5],
-    output debug_out[16],
     
     input ra2sel,
 
@@ -15,7 +12,31 @@ module regfile (
     input data[16],
     
     output ra_data[16],
-    output rb_data[16]
+    output rb_data[16],
+
+    input debug_in[5],
+    output debug_out[16],
+
+    output box00_o[16],
+    output box01_o[16],
+    output box02_o[16],
+    output box10_o[16],
+    output box11_o[16],
+    output box12_o[16],
+    output box20_o[16],
+    output box21_o[16],
+    output box22_o[16],
+
+    output pieces_remaining_small_p1_o[16],
+    output pieces_remaining_small_p2_o[16],
+
+    output pieces_remaining_med_p1_o[16],
+    output pieces_remaining_med_p2_o[16],
+
+    output pieces_remaining_large_p1_o[16],
+    output pieces_remaining_large_p2_o[16],
+
+    output box_addr_o[16]
   ) {
 
   sig ra_data_s[16];
@@ -378,5 +399,26 @@ module regfile (
       31:
         debug_out = temp13.q;
     }
+
+    box00_o = box00.q;
+    box01_o = box01.q;
+    box02_o = box02.q;
+    box10_o = box10.q;
+    box11_o = box11.q;
+    box12_o = box12.q;
+    box20_o = box20.q;
+    box21_o = box21.q;
+    box22_o = box22.q;
+
+    pieces_remaining_small_p1_o = pieces_remaining_small_p1.q;
+    pieces_remaining_small_p2_o = pieces_remaining_small_p2.q;
+
+    pieces_remaining_med_p1_o = pieces_remaining_med_p1.q;
+    pieces_remaining_med_p2_o = pieces_remaining_med_p2.q;
+
+    pieces_remaining_large_p1_o = pieces_remaining_large_p1.q;
+    pieces_remaining_large_p2_o = pieces_remaining_large_p2.q;
+
+    box_addr_o = box_addr.q;
   }
 }

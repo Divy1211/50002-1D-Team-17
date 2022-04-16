@@ -60,7 +60,6 @@ module au_top (
     keypadrow = keypad.out_row;
     keypad.in_col = keypadcol;
 
-    test.io_button = 0;
     test.io_dip = {8b0, 8b0, 8b0};
     test.button_0 = 0;
     test.button_1 = 0;
@@ -90,7 +89,6 @@ module au_top (
           state.d = state.MANUAL;
         }
       state.MANUAL:
-        test.io_button = io_button;
         test.io_dip = io_dip;
 
         test.button_0 = keypad.button_0;

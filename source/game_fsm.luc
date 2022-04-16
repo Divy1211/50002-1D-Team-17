@@ -38,7 +38,12 @@ module game_fsm (
     output start,
     output finished,
 
-    output state[8]
+    output state[8],
+
+    output p1_select_box[8],
+    output p1_select_size[8],
+    output p2_select_box[8],
+    output p2_select_size[8]
   ) {
   
   op_code_enum alu_op_code;
@@ -207,6 +212,12 @@ module game_fsm (
     start = 0;
     finished = 0;
     literal = 0;
+
+    
+    p1_select_box = game_state.SELECT_BOX_P1;
+    p1_select_size = game_state.SELECT_SIZE_P1;
+    p2_select_box = game_state.SELECT_BOX_P2;
+    p2_select_size = game_state.SELECT_SIZE_P2;
 
     state = game_state.q;
     case(game_state.q) {
@@ -2003,7 +2014,6 @@ module game_fsm (
         alufn = alu_op_code.t_b_16;
         rc = regfile_addr.winner;
         literal = 1;
-        finished = 1;
         we = 1;
         game_state.d = game_state.END;
       game_state.DECLARE_P2_WINNER:
@@ -2012,16 +2022,15 @@ module game_fsm (
         alufn = alu_op_code.t_b_16;
         rc = regfile_addr.winner;
         literal = 2;
-        finished = 1;
         we = 1;
         game_state.d = game_state.END;
       game_state.DECLARE_DRAW:
         finished = 1;
-        asel = 1;
-        alufn = alu_op_code.t_a_16;
+        bsel = 1;
+        alufn = alu_op_code.t_b_16;
         rc = regfile_addr.winner;
-        finished = 1;
         we = 1;
+        literal = 3;
         game_state.d = game_state.END;
       game_state.END:
         finished = 1;
