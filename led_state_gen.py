@@ -9,22 +9,22 @@ def main():
                 [
                     f"\n    case(box{i}{j}) {{",
                     f"      8:",
-                    *[f"        led_state.d[{xy_to_i(5 * i + l, 5 * j + m, 16)}] = 1;  " for l, m in
+                    *[f"        led_state.d[{xy_to_i(5 * j + l, 5 * i + m, 16)}] = 1;  " for l, m in
                       itertools.product(range(2, 3), repeat = 2)],
                     f"      14:",
-                    *[f"        led_state.d[{xy_to_i(5 * i + l, 5 * j + m, 16)}] = 1;  " for l, m in
+                    *[f"        led_state.d[{xy_to_i(5 * j + l, 5 * i + m, 16)}] = 1;  " for l, m in
                       itertools.product(range(1, 4), repeat = 2)],
                     f"      20:",
-                    *[f"        led_state.d[{xy_to_i(5 * i + l, 5 * j + m, 16)}] = 1;  " for l, m in
+                    *[f"        led_state.d[{xy_to_i(5 * j + l, 5 * i + m, 16)}] = 1;  " for l, m in
                       itertools.product(range(0, 5), repeat = 2)],
                     f"      10:",
-                    *[f"        led_state.d[{xy_to_i(5 * i + l, 5 * j + m, 16)}] = 2;  " for l, m in
+                    *[f"        led_state.d[{xy_to_i(5 * j + l, 5 * i + m, 16)}] = 2;  " for l, m in
                       itertools.product(range(2, 3), repeat = 2)],
                     f"      16:",
-                    *[f"        led_state.d[{xy_to_i(5 * i + l, 5 * j + m, 16)}] = 2;  " for l, m in
+                    *[f"        led_state.d[{xy_to_i(5 * j + l, 5 * i + m, 16)}] = 2;  " for l, m in
                       itertools.product(range(1, 4), repeat = 2)],
                     f"      22:",
-                    *[f"        led_state.d[{xy_to_i(5 * i + l, 5 * j + m, 16)}] = 2;  " for l, m in
+                    *[f"        led_state.d[{xy_to_i(5 * j + l, 5 * i + m, 16)}] = 2;  " for l, m in
                       itertools.product(range(0, 5), repeat = 2)],
                     f"    }}"
                 ]
@@ -97,7 +97,7 @@ def main():
             ])
     case_box += f"\n          }}"
 
-    out += "\n    if(selection_highlight[26]) {\n"
+    out += "\n    if(selection_highlight.value[26]) {\n"
 
     out += "\n".join(
         [
@@ -114,6 +114,39 @@ def main():
 
     with open("./led_state.luc", "w") as file:
         file.write(out)
+
+    # a = [0]*256
+    #
+    # for i in range(2, 3):
+    #     for j in range(1, 2):
+    #         def f(l, m, v):
+    #             nonlocal i, j, a
+    #             a[xy_to_i(5 * j + l, 5 * i + m, 16)] = v
+
+            # [f(l, m, 1) for l, m in itertools.product(range(2, 3), repeat = 2)]
+            # [f(l, m, 1) for l, m in itertools.product(range(1, 4), repeat = 2)]
+            # [f(l, m, 1) for l, m in itertools.product(range(0, 5), repeat = 2)]
+            # [f(l, m, 2) for l, m in itertools.product(range(2, 3), repeat = 2)]
+            # [f(l, m, 2) for l, m in itertools.product(range(1, 4), repeat = 2)]
+            # [f(l, m, 2) for l, m in itertools.product(range(0, 5), repeat = 2)]
+
+            # a[xy_to_i(j * 5, i * 5, 16)] = 1
+            # a[xy_to_i(j * 5, i * 5 + 1, 16)] = 1
+            # a[xy_to_i(j * 5 + 1, i * 5, 16)] = 1
+            # a[xy_to_i(j * 5 + 4, i * 5, 16)] = 1
+            #
+            # a[xy_to_i(j * 5 + 4, i * 5 + 1, 16)] = 1
+            # a[xy_to_i(j * 5 + 3, i * 5, 16)] = 1
+            # a[xy_to_i(j * 5, i * 5 + 4, 16)] = 1
+            # a[xy_to_i(j * 5, i * 5 + 3, 16)] = 1
+            #
+            # a[xy_to_i(j * 5 + 1, i * 5 + 4, 16)] = 1
+            # a[xy_to_i(j * 5 + 4, i * 5 + 4, 16)] = 1
+            # a[xy_to_i(j * 5 + 3, i * 5 + 4, 16)] = 1
+            # a[xy_to_i(j * 5 + 4, i * 5 + 3, 16)] = 1
+
+    # for i in range(16):
+    #     print(a[i*16:(i+1)*16])
 
 if __name__ == "__main__":
     main()
