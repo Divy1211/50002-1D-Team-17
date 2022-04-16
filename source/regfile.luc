@@ -42,7 +42,7 @@ module regfile (
   sig ra_data_s[16];
   sig rc_s[5];
   
-  .clk(clk)
+  .clk(clk) {
     .rst(rst) {
       dff box00[16](#INIT(0));
       dff box01[16](#INIT(0));
@@ -83,7 +83,7 @@ module regfile (
       dff temp11[16](#INIT(0));
       dff temp12[16](#INIT(0));
       dff temp13[16](#INIT(0));
-  }
+    }
   }
 
   always {
