@@ -1,4 +1,4 @@
-module game_fsm_test (
+module motherboard (
     input clk,  // clock
     input rst,  // reset
 
@@ -83,7 +83,7 @@ module game_fsm_test (
       0:
         display = game.state;
       1:
-        regf.debug_in = io_dip[0][4:0];
+        regf.debug_in = io_dip[1][4:0];
         display = regf.debug_out;
     }
     

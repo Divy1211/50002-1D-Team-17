@@ -23,9 +23,7 @@ module au_top (
   
   .clk(clk) {
     .rst(rst) {
-      custom_clk cclk;
-      fsm state = {START, MANUAL, AUTO};
-      wave wave1;                                                               // fancy wave effect
+      custom_clk cclk;                   // fancy wave effect
       multi_seven_seg seven_seg_display;
       ws2812b_writer led_out;
     }
@@ -37,17 +35,17 @@ module au_top (
   .clk(cclk.out) {
     .rst(rst) {
       keypad_driver keypad;
-      game_fsm_test test;
+      motherboard main_motherboard;
     }
   }
 
   always {
     
     led_out.update = 1;
-    led_out.color = test.disp_out[led_out.pixel];
+    led_out.color = main_motherboard.disp_out[led_out.pixel];
     outled = led_out.led;
     
-    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    reset_cond.in = ~(keypad.button_asterisk | keypad.button_hash); // input raw inverted reset signal
     rst = reset_cond.out;
     
     usb_tx = usb_rx;        // loop serial port
@@ -66,83 +64,74 @@ module au_top (
     keypadrow = keypad.out_row;
     keypad.in_col = keypadcol;
 
-    test.io_dip = {8b0, 8b0, 8b0};
-    test.button_0 = 0;
-    test.button_1 = 0;
-    test.button_2 = 0;
-    test.button_3 = 0;
-    test.button_4 = 0;
-    test.button_5 = 0;
-    test.button_6 = 0;
-    test.button_7 = 0;
-    test.button_8 = 0;
-    test.button_9 = 0;
+    main_motherboard.io_dip = {8b0, 8b0, 8b0};
+    main_motherboard.button_0 = 0;
+    main_motherboard.button_1 = 0;
+    main_motherboard.button_2 = 0;
+    main_motherboard.button_3 = 0;
+    main_motherboard.button_4 = 0;
+    main_motherboard.button_5 = 0;
+    main_motherboard.button_6 = 0;
+    main_motherboard.button_7 = 0;
+    main_motherboard.button_8 = 0;
+    main_motherboard.button_9 = 0;
 
-    test.button_a = 0;
-    test.button_b = 0;
-    test.button_c = 0;
-    test.button_d = 0;
-    test.button_asterisk = 0;
-    test.button_hash = 0;
+    main_motherboard.button_a = 0;
+    main_motherboard.button_b = 0;
+    main_motherboard.button_c = 0;
+    main_motherboard.button_d = 0;
+    main_motherboard.button_asterisk = 0;
+    main_motherboard.button_hash = 0;
 
 
-    case (state.q) {
-      state.START:
-        io_led[0] = wave1.out;
-        io_led[1] = wave1.out;
-        io_led[2] = wave1.out;
-        if (io_button[3]) {                 // left io button --> manual test mode
-          state.d = state.MANUAL;
-        }
-      state.MANUAL:
-        test.io_dip = io_dip;
+    main_motherboard.io_dip = io_dip;
 
-        test.button_0 = keypad.button_0;
-        test.button_1 = keypad.button_1;
-        test.button_2 = keypad.button_2;
-        test.button_3 = keypad.button_3;
-        test.button_4 = keypad.button_4;
-        test.button_5 = keypad.button_5;
-        test.button_6 = keypad.button_6;
-        test.button_7 = keypad.button_7;
-        test.button_8 = keypad.button_8;
-        test.button_9 = keypad.button_9;
+    main_motherboard.button_0 = keypad.button_0;
+    main_motherboard.button_1 = keypad.button_1;
+    main_motherboard.button_2 = keypad.button_2;
+    main_motherboard.button_3 = keypad.button_3;
+    main_motherboard.button_4 = keypad.button_4;
+    main_motherboard.button_5 = keypad.button_5;
+    main_motherboard.button_6 = keypad.button_6;
+    main_motherboard.button_7 = keypad.button_7;
+    main_motherboard.button_8 = keypad.button_8;
+    main_motherboard.button_9 = keypad.button_9;
 
-        test.button_a = keypad.button_a;
-        test.button_b = keypad.button_b;
-        test.button_c = keypad.button_c;
-        test.button_d = keypad.button_d;
+    main_motherboard.button_a = keypad.button_a;
+    main_motherboard.button_b = keypad.button_b;
+    main_motherboard.button_c = keypad.button_c;
+    main_motherboard.button_d = keypad.button_d;
 
-        test.button_asterisk = keypad.button_asterisk;
-        test.button_hash = keypad.button_hash;
+    // main_motherboard.button_asterisk = keypad.button_asterisk;
+    // main_motherboard.button_hash = keypad.button_hash;
 
-        seven_seg_display.values[0] = test.display[3:0];
-        seven_seg_display.values[1] = test.display[7:4];
-        seven_seg_display.values[2] = test.display[11:8];
-        seven_seg_display.values[3] = test.display[15:12];
+    seven_seg_display.values[0] = main_motherboard.display[3:0];
+    seven_seg_display.values[1] = main_motherboard.display[7:4];
+    seven_seg_display.values[2] = main_motherboard.display[11:8];
+    seven_seg_display.values[3] = main_motherboard.display[15:12];
 
-        io_seg = seven_seg_display.seg;
-        io_sel = seven_seg_display.sel;
+    io_seg = seven_seg_display.seg;
+    io_sel = seven_seg_display.sel;
 
-        io_led[2][7:4] = keypad.out_row;
-        io_led[2][3:0] = keypad.out_col;
+    io_led[2][7:4] = keypad.out_row;
+    io_led[2][3:0] = keypad.out_col;
 
-        io_led[0][0] = keypad.button_1;
-        io_led[0][1] = keypad.button_2;
-        io_led[0][2] = keypad.button_3;
-        io_led[0][3] = keypad.button_a;
-        io_led[0][4] = keypad.button_4;
-        io_led[0][5] = keypad.button_5;
-        io_led[0][6] = keypad.button_6;
-        io_led[0][7] = keypad.button_b;
+    io_led[0][0] = keypad.button_1;
+    io_led[0][1] = keypad.button_2;
+    io_led[0][2] = keypad.button_3;
+    io_led[0][3] = keypad.button_a;
+    io_led[0][4] = keypad.button_4;
+    io_led[0][5] = keypad.button_5;
+    io_led[0][6] = keypad.button_6;
+    io_led[0][7] = keypad.button_b;
 
-        io_led[1][0] = keypad.button_7;
-        io_led[1][1] = keypad.button_8;
-        io_led[1][2] = keypad.button_9;
-        io_led[1][3] = keypad.button_c;
-        io_led[1][4] = keypad.button_asterisk;
-        io_led[1][5] = keypad.button_0;
-        io_led[1][6] = keypad.button_hash;
-        io_led[1][7] = keypad.button_d;
+    io_led[1][0] = keypad.button_7;
+    io_led[1][1] = keypad.button_8;
+    io_led[1][2] = keypad.button_9;
+    io_led[1][3] = keypad.button_c;
+    io_led[1][4] = keypad.button_asterisk;
+    io_led[1][5] = keypad.button_0;
+    io_led[1][6] = keypad.button_hash;
+    io_led[1][7] = keypad.button_d;
   }
 }

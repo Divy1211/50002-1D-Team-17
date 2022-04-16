@@ -2,7 +2,6 @@
 <project name="16bitALU" board="Alchitry Au" language="Lucid" version="3">
   <files>
     <src>multiplier.luc</src>
-    <src>game_fsm_test.luc</src>
     <src>shifter.luc</src>
     <src>alternating_decoder.luc</src>
     <src>custom_clk.luc</src>
@@ -19,6 +18,7 @@
     <src>keypad_driver.luc</src>
     <src>alu.luc</src>
     <src>regfile.luc</src>
+    <src>motherboard.luc</src>
     <component>reset_conditioner.luc</component>
     <src>adder.luc</src>
     <src>compare.luc</src>
