@@ -34,9 +34,11 @@ module au_top (
     reset_conditioner reset_cond;
   }
   
-  .clk(cclk.out), .rst(rst) {
-    keypad_driver keypad;
-     game_fsm_test test;
+  .clk(cclk.out) {
+    .rst(rst) {
+      keypad_driver keypad;
+      game_fsm_test test;
+    }
   }
 
   always {

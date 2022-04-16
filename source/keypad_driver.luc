@@ -28,11 +28,13 @@ module keypad_driver (
     output button_hash
   ) {
   
-  .clk(clk), .rst(rst) {
-    fsm driver = {DETECT_COL, DETECT_ROW1_PT1, DETECT_ROW1_PT2, DETECT_ROW2_PT1, DETECT_ROW2_PT2, DETECT_ROW3_PT1, DETECT_ROW3_PT2, DETECT_ROW4_PT1, DETECT_ROW4_PT2};
-    
-    dff in_col_dff[4](#INIT(0));
-    counter cycles_c(#SIZE(10));
+  .clk(clk) {
+    .rst(rst) {
+      fsm driver = {DETECT_COL, DETECT_ROW1_PT1, DETECT_ROW1_PT2, DETECT_ROW2_PT1, DETECT_ROW2_PT2, DETECT_ROW3_PT1, DETECT_ROW3_PT2, DETECT_ROW4_PT1, DETECT_ROW4_PT2};
+      
+      dff in_col_dff[4](#INIT(0));
+      counter cycles_c(#SIZE(10));
+    }
   }
 
   always {

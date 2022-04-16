@@ -25,10 +25,12 @@ module game_fsm_test (
     output disp_out[256][24]
   ) {
   
-  .clk(clk), .rst(rst) {
-    game_fsm game;
-    regfile regf;
-    led_state state_l;
+  .clk(clk) {
+    .rst(rst) {
+      game_fsm game;
+      regfile regf;
+      led_state state_l;
+    }
   }
   alu aluTest;
   alternating_decoder decode;

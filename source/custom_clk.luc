@@ -4,8 +4,10 @@ module custom_clk (
     output out
   ) {
   
-  .clk(clk), .rst(rst) {
-    counter a(#SIZE(32));
+  .clk(clk) {
+    .rst(rst) {
+      counter a(#SIZE(32));
+    }
   }
 
   always {

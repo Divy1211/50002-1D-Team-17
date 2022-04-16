@@ -17,8 +17,10 @@ module multi_seven_seg(
     output sel [4]            // Digit select
   ) {
  
-  .clk(clk), .rst(rst) {
-    counter ctr (#DIV(16), #SIZE(2), #TOP(3)); 
+  .clk(clk) {
+    .rst(rst) {
+      counter ctr (#DIV(16), #SIZE(2), #TOP(3)); 
+    }
   }
  
   seven_seg seg_dec;                      // segment decoder
