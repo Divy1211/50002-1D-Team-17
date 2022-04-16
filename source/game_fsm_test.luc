@@ -21,16 +21,17 @@ module game_fsm_test (
     input button_asterisk,
     input button_hash,
 
-    output display[16]
+    output display[16],
+    output disp_out[256][24]
   ) {
   
   .clk(clk), .rst(rst) {
     game_fsm game;
     regfile regf;
-
     led_state state_l;
   }
   alu aluTest;
+  alternating_decoder decode;
 
   always {
     game.button_0 = button_0;
@@ -83,7 +84,7 @@ module game_fsm_test (
         regf.debug_in = io_dip[0][4:0];
         display = regf.debug_out;
     }
-
+    
     state_l.box00 = regf.box00_o;
     state_l.box01 = regf.box01_o;
     state_l.box02 = regf.box02_o;
@@ -107,6 +108,9 @@ module game_fsm_test (
     state_l.p1_select_size = game.p1_select_size;
     state_l.p2_select_box = game.p2_select_box;
     state_l.p2_select_size = game.p2_select_size;
-
+    
+    decode.dataIn = state_l.data_out;
+    disp_out = decode.out;
+    
   }
 }

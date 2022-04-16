@@ -4,6 +4,7 @@
     <src>multiplier.luc</src>
     <src>game_fsm_test.luc</src>
     <src>shifter.luc</src>
+    <src>alternating_decoder.luc</src>
     <src>custom_clk.luc</src>
     <component>wave.luc</component>
     <src>led_state.luc</src>
@@ -22,6 +23,7 @@
     <src>adder.luc</src>
     <src>compare.luc</src>
     <src>seven_seg.luc</src>
+    <src>ws2812b_writer.luc</src>
     <constraint lib="true">alchitry.acf</constraint>
     <constraint lib="true">io.acf</constraint>
     <constraint>br_io_pins.acf</constraint>

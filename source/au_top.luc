@@ -27,6 +27,7 @@ module au_top (
       fsm state = {START, MANUAL, AUTO};
       wave wave1;                                                               // fancy wave effect
       multi_seven_seg seven_seg_display;
+      ws2812b_writer led_out;
     }
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
@@ -39,6 +40,10 @@ module au_top (
   }
 
   always {
+    
+    led_out.update = 1;
+    led_out.color = test.disp_out[led_out.pixel];
+    outled = led_out.led;
     
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;
@@ -56,7 +61,6 @@ module au_top (
     seven_seg_display.values[2] = 0;
     seven_seg_display.values[3] = 0;
 
-    outled = 0;
     keypadrow = keypad.out_row;
     keypad.in_col = keypadcol;
 

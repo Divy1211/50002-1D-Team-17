@@ -1,0 +1,174 @@
+module alternating_decoder (
+    input dataIn[256][2],
+    output out[256][24]
+  ) {
+  
+  // 00 black
+  // 01 green
+  // 10 red
+  const COLORS = {24h00FF00, 24h0000FF, 24h000000};
+  
+  sig array [256][24];
+  sig reversedArray[256][24];
+  var i;
+  
+  always {
+    
+    for (i = 0; i < 256; i++){
+   
+       if (dataIn[i]== 2b00){
+            array[i] = COLORS[0];
+        }
+      
+      else if (dataIn[i]== 2b01){
+            array[i] = COLORS[1];
+        }
+            
+      else if (dataIn[i]== 2b10){
+            array[i] = COLORS[2];
+        }
+      else{
+          array[i] = 24h000000;
+      }      
+    } 
+    
+      reversedArray[15:0] = array[15:0];
+      reversedArray[15:0] = array[15:0];
+      reversedArray[47:32] = array[47:32];
+      reversedArray[79:64] = array[79:64];
+      reversedArray[111:96] = array[111:96];
+      reversedArray[143:128] = array[143:128];
+      reversedArray[175:160] = array[175:160];
+      reversedArray[207:192] = array[207:192];
+      reversedArray[239:224] = array[239:224];
+      reversedArray[16] = array[31];
+      reversedArray[17] = array[30];
+      reversedArray[18] = array[29];
+      reversedArray[19] = array[28];
+      reversedArray[20] = array[27];
+      reversedArray[21] = array[26];
+      reversedArray[22] = array[25];
+      reversedArray[23] = array[24];
+      reversedArray[24] = array[23];
+      reversedArray[25] = array[22];
+      reversedArray[26] = array[21];
+      reversedArray[27] = array[20];
+      reversedArray[28] = array[19];
+      reversedArray[29] = array[18];
+      reversedArray[30] = array[17];
+      reversedArray[31] = array[16];
+      reversedArray[48] = array[63];
+      reversedArray[49] = array[62];
+      reversedArray[50] = array[61];
+      reversedArray[51] = array[60];
+      reversedArray[52] = array[59];
+      reversedArray[53] = array[58];
+      reversedArray[54] = array[57];
+      reversedArray[55] = array[56];
+      reversedArray[56] = array[55];
+      reversedArray[57] = array[54];
+      reversedArray[58] = array[53];
+      reversedArray[59] = array[52];
+      reversedArray[60] = array[51];
+      reversedArray[61] = array[50];
+      reversedArray[62] = array[49];
+      reversedArray[63] = array[48];
+      reversedArray[80] = array[95];
+      reversedArray[81] = array[94];
+      reversedArray[82] = array[93];
+      reversedArray[83] = array[92];
+      reversedArray[84] = array[91];
+      reversedArray[85] = array[90];
+      reversedArray[86] = array[89];
+      reversedArray[87] = array[88];
+      reversedArray[88] = array[87];
+      reversedArray[89] = array[86];
+      reversedArray[90] = array[85];
+      reversedArray[91] = array[84];
+      reversedArray[92] = array[83];
+      reversedArray[93] = array[82];
+      reversedArray[94] = array[81];
+      reversedArray[95] = array[80];
+      reversedArray[112] = array[127];
+      reversedArray[113] = array[126];
+      reversedArray[114] = array[125];
+      reversedArray[115] = array[124];
+      reversedArray[116] = array[123];
+      reversedArray[117] = array[122];
+      reversedArray[118] = array[121];
+      reversedArray[119] = array[120];
+      reversedArray[120] = array[119];
+      reversedArray[121] = array[118];
+      reversedArray[122] = array[117];
+      reversedArray[123] = array[116];
+      reversedArray[124] = array[115];
+      reversedArray[125] = array[114];
+      reversedArray[126] = array[113];
+      reversedArray[127] = array[112];
+      reversedArray[144] = array[159];
+      reversedArray[145] = array[158];
+      reversedArray[146] = array[157];
+      reversedArray[147] = array[156];
+      reversedArray[148] = array[155];
+      reversedArray[149] = array[154];
+      reversedArray[150] = array[153];
+      reversedArray[151] = array[152];
+      reversedArray[152] = array[151];
+      reversedArray[153] = array[150];
+      reversedArray[154] = array[149];
+      reversedArray[155] = array[148];
+      reversedArray[156] = array[147];
+      reversedArray[157] = array[146];
+      reversedArray[158] = array[145];
+      reversedArray[159] = array[144];
+      reversedArray[176] = array[191];
+      reversedArray[177] = array[190];
+      reversedArray[178] = array[189];
+      reversedArray[179] = array[188];
+      reversedArray[180] = array[187];
+      reversedArray[181] = array[186];
+      reversedArray[182] = array[185];
+      reversedArray[183] = array[184];
+      reversedArray[184] = array[183];
+      reversedArray[185] = array[182];
+      reversedArray[186] = array[181];
+      reversedArray[187] = array[180];
+      reversedArray[188] = array[179];
+      reversedArray[189] = array[178];
+      reversedArray[190] = array[177];
+      reversedArray[191] = array[176];
+      reversedArray[208] = array[223];
+      reversedArray[209] = array[222];
+      reversedArray[210] = array[221];
+      reversedArray[211] = array[220];
+      reversedArray[212] = array[219];
+      reversedArray[213] = array[218];
+      reversedArray[214] = array[217];
+      reversedArray[215] = array[216];
+      reversedArray[216] = array[215];
+      reversedArray[217] = array[214];
+      reversedArray[218] = array[213];
+      reversedArray[219] = array[212];
+      reversedArray[220] = array[211];
+      reversedArray[221] = array[210];
+      reversedArray[222] = array[209];
+      reversedArray[223] = array[208];
+      reversedArray[240] = array[255];
+      reversedArray[241] = array[254];
+      reversedArray[242] = array[253];
+      reversedArray[243] = array[252];
+      reversedArray[244] = array[251];
+      reversedArray[245] = array[250];
+      reversedArray[246] = array[249];
+      reversedArray[247] = array[248];
+      reversedArray[248] = array[247];
+      reversedArray[249] = array[246];
+      reversedArray[250] = array[245];
+      reversedArray[251] = array[244];
+      reversedArray[252] = array[243];
+      reversedArray[253] = array[242];
+      reversedArray[254] = array[241];
+      reversedArray[255] = array[240];    
+      out = reversedArray;
+    }
+}
