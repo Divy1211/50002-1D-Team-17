@@ -224,6 +224,7 @@ module game_fsm (
     end_s = game_state.END;
 
     state = game_state.q;
+    case(game_state.q) {
       game_state.START:
         if(|c{button_0, button_asterisk, button_hash}) {
           start = 1;
