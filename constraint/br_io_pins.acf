@@ -1,9 +1,9 @@
 pin outled C49;
-pin keypadrow[0] C46 pulldown;
-pin keypadrow[1] C45 pulldown;
-pin keypadrow[2] C5 pulldown;
-pin keypadrow[3] C6 pulldown;
-pin keypadcol[0] C43 pulldown;
-pin keypadcol[1] C42 pulldown;
-pin keypadcol[2] C8 pulldown;
-pin keypadcol[3] C9 pulldown;
+pin keypadrow[0] B30 pulldown;
+pin keypadrow[1] B31 pulldown;
+pin keypadrow[2] B33 pulldown;
+pin keypadrow[3] B34 pulldown;
+pin keypadcol[0] B36 pulldown;
+pin keypadcol[1] B37 pulldown;
+pin keypadcol[2] B39 pulldown;
+pin keypadcol[3] B40 pulldown;
