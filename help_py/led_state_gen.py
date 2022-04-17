@@ -122,32 +122,56 @@ def main():
     #         def f(l, m, v):
     #             nonlocal i, j, a
     #             a[xy_to_i(5 * j + l, 5 * i + m, 16)] = v
-
-            # [f(l, m, 1) for l, m in itertools.product(range(2, 3), repeat = 2)]
-            # [f(l, m, 1) for l, m in itertools.product(range(1, 4), repeat = 2)]
-            # [f(l, m, 1) for l, m in itertools.product(range(0, 5), repeat = 2)]
-            # [f(l, m, 2) for l, m in itertools.product(range(2, 3), repeat = 2)]
-            # [f(l, m, 2) for l, m in itertools.product(range(1, 4), repeat = 2)]
-            # [f(l, m, 2) for l, m in itertools.product(range(0, 5), repeat = 2)]
-
-            # a[xy_to_i(j * 5, i * 5, 16)] = 1
-            # a[xy_to_i(j * 5, i * 5 + 1, 16)] = 1
-            # a[xy_to_i(j * 5 + 1, i * 5, 16)] = 1
-            # a[xy_to_i(j * 5 + 4, i * 5, 16)] = 1
-            #
-            # a[xy_to_i(j * 5 + 4, i * 5 + 1, 16)] = 1
-            # a[xy_to_i(j * 5 + 3, i * 5, 16)] = 1
-            # a[xy_to_i(j * 5, i * 5 + 4, 16)] = 1
-            # a[xy_to_i(j * 5, i * 5 + 3, 16)] = 1
-            #
-            # a[xy_to_i(j * 5 + 1, i * 5 + 4, 16)] = 1
-            # a[xy_to_i(j * 5 + 4, i * 5 + 4, 16)] = 1
-            # a[xy_to_i(j * 5 + 3, i * 5 + 4, 16)] = 1
-            # a[xy_to_i(j * 5 + 4, i * 5 + 3, 16)] = 1
-
+    #
+    #         [f(l, m, 1) for l, m in itertools.product(range(2, 3), repeat = 2)]
+    #         [f(l, m, 1) for l, m in itertools.product(range(1, 4), repeat = 2)]
+    #         [f(l, m, 1) for l, m in itertools.product(range(0, 5), repeat = 2)]
+    #         [f(l, m, 2) for l, m in itertools.product(range(2, 3), repeat = 2)]
+    #         [f(l, m, 2) for l, m in itertools.product(range(1, 4), repeat = 2)]
+    #         [f(l, m, 2) for l, m in itertools.product(range(0, 5), repeat = 2)]
+    #
+    #         a[xy_to_i(j * 5, i * 5, 16)] = 1
+    #         a[xy_to_i(j * 5, i * 5 + 1, 16)] = 1
+    #         a[xy_to_i(j * 5 + 1, i * 5, 16)] = 1
+    #         a[xy_to_i(j * 5 + 4, i * 5, 16)] = 1
+    #
+    #         a[xy_to_i(j * 5 + 4, i * 5 + 1, 16)] = 1
+    #         a[xy_to_i(j * 5 + 3, i * 5, 16)] = 1
+    #         a[xy_to_i(j * 5, i * 5 + 4, 16)] = 1
+    #         a[xy_to_i(j * 5, i * 5 + 3, 16)] = 1
+    #
+    #         a[xy_to_i(j * 5 + 1, i * 5 + 4, 16)] = 1
+    #         a[xy_to_i(j * 5 + 4, i * 5 + 4, 16)] = 1
+    #         a[xy_to_i(j * 5 + 3, i * 5 + 4, 16)] = 1
+    #         a[xy_to_i(j * 5 + 4, i * 5 + 3, 16)] = 1
+    #
     # for i in range(16):
     #     print(a[i*16:(i+1)*16])
 
+import numpy as np
+
+
+def main2():
+    a = np.ndarray.flatten(np.array([[1]*8 + [0]*8 for _ in range(16)]))
+    ra = np.ndarray.flatten(np.array([[1]*8 + [0]*8 for _ in range(16)]))
+
+    # print(np.reshape(a, (16, 16)))
+
+    for i in range(1, 16, 2):
+        print(f"reversedArray[{i*16+15}:{i*16}] = array[{i*16+15}:{i*16}];")
+        ra[i*16+15:i*16] = a[i*16+15:i*16]
+
+    for i in range(0, 16, 2):
+        for j, r in zip(range(i*16, (i+1)*16), range(i*16, (i+1)*16)[::-1]):
+            print(f"reversedArray[{j}] = array[{r}];")
+            ra[j] = a[r]
+
+    # print(np.reshape(ra, (16, 16)))
+
+
+
+
+
 if __name__ == "__main__":
-    main()
+    main2()
 

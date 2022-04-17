@@ -110,8 +110,8 @@ module motherboard (
     state_l.p1_select_size = game.p1_select_size;
     state_l.p2_select_box = game.p2_select_box;
     state_l.p2_select_size = game.p2_select_size;
-    state_l.p2_select_box = game.start;
-    state_l.p2_select_size = game.end_s;
+    state_l.start = game.start;
+    state_l.end_s = game.end_s;
     
     decode.dataIn = state_l.data_out;
     disp_out = decode.out;

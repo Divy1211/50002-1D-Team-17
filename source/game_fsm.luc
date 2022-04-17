@@ -35,10 +35,10 @@ module game_fsm (
     output wdsel,
     output ra2sel,
     output alufn[6],
-    output start,
-    output finished,
 
     output state[8],
+    output finished,
+    
 
     output p1_select_box[8],
     output p1_select_size[8],
@@ -212,8 +212,8 @@ module game_fsm (
     ra2sel = 0;
     alufn = 0;
     start = 0;
-    finished = 0;
     literal = 0;
+    finished = 0;
 
     
     p1_select_box = game_state.SELECT_BOX_P1;
