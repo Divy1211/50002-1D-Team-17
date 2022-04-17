@@ -14,7 +14,7 @@ module custom_clk (
   }
 
   always {
-    if(io_dip[2][3:0]) {
+    case(io_dip[2][3:0]) {
       default:
         out = a.value[1];
       1:
