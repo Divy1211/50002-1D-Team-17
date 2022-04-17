@@ -43,7 +43,9 @@ module game_fsm (
     output p1_select_box[8],
     output p1_select_size[8],
     output p2_select_box[8],
-    output p2_select_size[8]
+    output p2_select_size[8],
+    output start[8],
+    output end_s[8]
   ) {
   
   op_code_enum alu_op_code;
@@ -218,6 +220,8 @@ module game_fsm (
     p1_select_size = game_state.SELECT_SIZE_P1;
     p2_select_box = game_state.SELECT_BOX_P2;
     p2_select_size = game_state.SELECT_SIZE_P2;
+    start = game_state.START;
+    end_s = game_state.END;
 
     state = game_state.q;
     case(game_state.q) {
