@@ -23,10 +23,12 @@ module au_top (
   
   .clk(clk) {
     .rst(rst) {
-      custom_clk cclk;
       multi_seven_seg seven_seg_display;
       
       ws2812b_writer led_out;
+    }
+    .rst(0) {
+      custom_clk cclk;
     }
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
