@@ -51,7 +51,7 @@ module au_top (
     led_out.color = main_mb.disp_out[led_out.pixel];
     outled = led_out.led;
     
-    key_press.in = (keypad.button_hash | keypad.button_asterisk);
+    key_press.in = keypad.button_asterisk;
     reset_cond.in = key_press.out;
     rst = reset_cond.out;
     
@@ -108,8 +108,8 @@ module au_top (
     main_mb.button_c = keypad.button_c;
     main_mb.button_d = keypad.button_d;
 
-    // main_mb.button_asterisk = keypad.button_asterisk;
-    // main_mb.button_hash = keypad.button_hash;
+    main_mb.button_asterisk = keypad.button_asterisk;
+    main_mb.button_hash = keypad.button_hash;
 
     seven_seg_display.values[0] = main_mb.display[3:0];
     seven_seg_display.values[1] = main_mb.display[7:4];
