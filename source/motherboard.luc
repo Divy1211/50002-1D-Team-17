@@ -2,8 +2,6 @@ module motherboard (
     input clk,  // clock
     input rst,  // reset
     
-    input fclk,
-    
     input io_dip [3][8],     // DIP switches on IO Shield
     
     input button_0,
@@ -31,8 +29,6 @@ module motherboard (
     .clk(clk) {
       game_fsm game;
       regfile regf;
-    }
-    .clk(fclk) {
       led_state state_l;
     }
   }

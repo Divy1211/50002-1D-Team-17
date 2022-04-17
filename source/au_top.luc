@@ -37,7 +37,7 @@ module au_top (
   .clk(cclk.out) {
     edge_detector key_press;
     .rst(rst) {
-      motherboard main_mb(.fclk(clk));
+      motherboard main_mb;
     }
     .rst(0) {
       keypad_driver keypad;
