@@ -1,6 +1,9 @@
 module custom_clk (
     input clk,  // clock
     input rst,  // reset
+
+    input io_dip [3][8],     // DIP switches on IO Shield
+
     output out
   ) {
   
@@ -11,7 +14,28 @@ module custom_clk (
   }
 
   always {
-    out = a.value[1];
+    if(io_dip[2][3:0]) {
+      default:
+        out = a.value[1];
+      1:
+        out = a.value[10];
+      2:
+        out = a.value[15];
+      3:
+        out = a.value[20];
+      4:
+        out = a.value[21];
+      5:
+        out = a.value[22];
+      6:
+        out = a.value[23];
+      7:
+        out = a.value[24];
+      8:
+        out = a.value[25];
+      9:
+        out = a.value[26];
+    }
   }
 }
  
