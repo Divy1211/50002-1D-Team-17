@@ -30,16 +30,17 @@ module au_top (
     }
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
-    reset_conditioner reset_cond;
   }
   
   .clk(cclk.out) {
+    edge_detector key_press;
     .rst(rst) {
       motherboard main_mb;
     }
     .rst(0) {
       keypad_driver keypad;
     }
+    reset_conditioner reset_cond;
   }
 
   always {
@@ -48,7 +49,8 @@ module au_top (
     led_out.color = main_mb.disp_out[led_out.pixel];
     outled = led_out.led;
     
-    reset_cond.in = (keypad.button_hash | keypad.button_asterisk);
+    key_press.in = (keypad.button_hash | keypad.button_asterisk);
+    reset_cond.in = key_press.out;
     rst = reset_cond.out;
     
     usb_tx = usb_rx;        // loop serial port
