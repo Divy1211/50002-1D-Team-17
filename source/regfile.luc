@@ -36,7 +36,8 @@ module regfile (
     output pieces_remaining_large_p1_o[16],
     output pieces_remaining_large_p2_o[16],
 
-    output box_addr_o[16]
+    output box_addr_o[16],
+    output winner_o[16]
   ) {
 
   sig ra_data_s[16];
@@ -422,5 +423,7 @@ module regfile (
     pieces_remaining_large_p2_o = pieces_remaining_large_p2.q;
 
     box_addr_o = box_addr.q;
+    
+    winner_o = winner_dff.q;
   }
 }
