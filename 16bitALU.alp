@@ -20,6 +20,7 @@
     <src>regfile.luc</src>
     <src>motherboard.luc</src>
     <component>reset_conditioner.luc</component>
+    <component>edge_detector.luc</component>
     <src>adder.luc</src>
     <src>compare.luc</src>
     <src>seven_seg.luc</src>
