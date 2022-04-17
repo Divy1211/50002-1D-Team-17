@@ -16,7 +16,7 @@ def main():
     while True:
         out += f"        8b{np.binary_repr(num, width = 8)}:\n"
         for i in range(16):
-            if i % 4 in [0, 1]:
+            if i % 2:
                 out += f"          led_state.d[{16 * i + 7}:{16 * i + 0}] = {{ {', '.join(['2b0' if j == '0' else '2b01' for j in np.binary_repr(num, width = 8)])} }};\n"
                 out += f"          led_state.d[{16 * i + 15}:{16 * i + 8}] = {{ {', '.join(['2b0' if j == '0' else '2b01' for j in np.binary_repr(num, width = 8)])} }};\n"
             else:
@@ -36,7 +36,7 @@ def main():
 
     out += "\n      }"
 
-    with open("./wave_gen.luc", "w") as file:
+    with open("wave_gen.luc", "w") as file:
         file.write(out)
 
 if __name__ == "__main__":

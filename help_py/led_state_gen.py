@@ -112,7 +112,7 @@ def main():
 
     out += "\n    }"
 
-    with open("./led_state.luc", "w") as file:
+    with open("led_state.luc", "w") as file:
         file.write(out)
 
     # a = [0]*256

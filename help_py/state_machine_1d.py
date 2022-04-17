@@ -570,52 +570,6 @@ for j in range(3):
             tr,
         )
 
-# for i in range(3):
-#     for j in range(3):
-#         if i < 2:
-#             if j == 0:
-#                 tr = TransitionRule("always", true_state = f"COMPLETE_COL_{i}_CHECK_BOX_{j + 1}{i}_P1")
-#             elif j == 1:
-#                 tr = TransitionRule(
-#                     "rb_data != 2",
-#                     true_state = f"COMPLETE_COL_{i+1}_CHECK_BOX_0{i+1}_P1",
-#                     false_state = f"COMPLETE_COL_{i}_CHECK_BOX_{j+1}{i}_P1"
-#                 )
-#             else:
-#                 tr = TransitionRule(
-#                     "rb_data != 2",
-#                     true_state = f"COMPLETE_COL_{i+1}_CHECK_BOX_0{i+1}_P1",
-#                     false_state = f"HAS_P1_WON"
-#                 )
-#         else:
-#             if j == 0:
-#                 tr = TransitionRule("always", true_state = f"COMPLETE_COL_{j}_CHECK_BOX_{j+1}{i}_P1")
-#             elif j == 1:
-#                 tr = TransitionRule(
-#                     "rb_data != 2",
-#                     true_state = f"COMPLETE_DIA_0_CHECK_BOX_00_P1",
-#                     false_state = f"COMPLETE_COL_{i}_CHECK_BOX_{j+1}{i}_P1"
-#                 )
-#             else:
-#                 tr = TransitionRule(
-#                     "rb_data != 2",
-#                     true_state = f"COMPLETE_DIA_0_CHECK_BOX_00_P1",
-#                     false_state = f"HAS_P1_WON"
-#                 )
-#         A.add_state(
-#             f'COMPLETE_COL_{i}_CHECK_BOX_{j}{i}_P1',
-#             StateOutput(
-#                 ra = f"regfile_addr.box{j}{i}",
-#                 rb = "regfile_addr.temp4",
-#                 rc = "regfile_addr.temp4",
-#                 literal = "3",
-#                 bsel = "1",
-#                 alufn = "alu_op_code.mod_16",
-#                 we = "1"
-#             ),
-#             tr,
-#         )
-
 for i in range(3):
     if i == 0:
         tr = TransitionRule("always", true_state = f"COMPLETE_DIA_0_CHECK_BOX_{i+1}{i+1}_P1")
@@ -902,36 +856,36 @@ for j in range(3):
     for i in range(3):
         if j < 2:
             if i == 0:
-                tr = TransitionRule("always", true_state = f"COMPLETE_ROW_{j}_CHECK_BOX_{j}{i + 1}_P2")
+                tr = TransitionRule("always", true_state = f"COMPLETE_ROW_{j}_CHECK_BOX_{j}{i + 1}_P1")
             elif i == 1:
                 tr = TransitionRule(
                     "rb_data != 1",
-                    true_state = f"COMPLETE_ROW_{j + 1}_CHECK_BOX_{j + 1}0_P2",
-                    false_state = f"COMPLETE_ROW_{j}_CHECK_BOX_{j}{i + 1}_P2"
+                    true_state = f"COMPLETE_ROW_{j + 1}_CHECK_BOX_{j + 1}0_P1",
+                    false_state = f"COMPLETE_ROW_{j}_CHECK_BOX_{j}{i + 1}_P1"
                 )
             else:
                 tr = TransitionRule(
                     "rb_data != 1",
-                    true_state = f"COMPLETE_ROW_{j + 1}_CHECK_BOX_{j + 1}0_P2",
-                    false_state = f"HAS_P2_WON"
+                    true_state = f"COMPLETE_ROW_{j + 1}_CHECK_BOX_{j + 1}0_P1",
+                    false_state = f"HAS_P1_WON"
                 )
         else:
             if i == 0:
-                tr = TransitionRule("always", true_state = f"COMPLETE_ROW_{j}_CHECK_BOX_{j}{i + 1}_P2")
+                tr = TransitionRule("always", true_state = f"COMPLETE_ROW_{j}_CHECK_BOX_{j}{i + 1}_P1")
             elif i == 1:
                 tr = TransitionRule(
                     "rb_data != 1",
-                    true_state = f"COMPLETE_COL_0_CHECK_BOX_00_P2",
-                    false_state = f"COMPLETE_ROW_{j}_CHECK_BOX_{j}{i + 1}_P2"
+                    true_state = f"COMPLETE_COL_0_CHECK_BOX_00_P1",
+                    false_state = f"COMPLETE_ROW_{j}_CHECK_BOX_{j}{i + 1}_P1"
                 )
             else:
                 tr = TransitionRule(
                     "rb_data != 1",
-                    true_state = f"COMPLETE_COL_0_CHECK_BOX_00_P2",
-                    false_state = f"HAS_P2_WON"
+                    true_state = f"COMPLETE_COL_0_CHECK_BOX_00_P1",
+                    false_state = f"HAS_P1_WON"
                 )
         A.add_state(
-            f'COMPLETE_ROW_{j}_CHECK_BOX_{j}{i}_P2',
+            f'COMPLETE_ROW_{j}_CHECK_BOX_{j}{i}_P1',
             StateOutput(
                 ra = f"regfile_addr.box{j}{i}",
                 rb = "regfile_addr.temp4",
@@ -944,31 +898,31 @@ for j in range(3):
             tr,
         )
 
-for i in range(3):
-    for j in range(3):
+for j in range(3):
+    for i in range(3):
         if j < 2:
             if i == 0:
-                tr = TransitionRule("always", true_state = f"COMPLETE_COL_{j}_CHECK_BOX_{j}{i + 1}_P2")
+                tr = TransitionRule("always", true_state = f"COMPLETE_COL_{j}_CHECK_BOX_{i + 1}{j}_P2")
             elif i == 1:
                 tr = TransitionRule(
                     "rb_data != 1",
-                    true_state = f"COMPLETE_COL_{j + 1}_CHECK_BOX_{j + 1}0_P2",
-                    false_state = f"COMPLETE_COL_{j}_CHECK_BOX_{j}{i + 1}_P2"
+                    true_state = f"COMPLETE_COL_{j + 1}_CHECK_BOX_0{j + 1}_P2",
+                    false_state = f"COMPLETE_COL_{j}_CHECK_BOX_{i + 1}{j}_P2"
                 )
             else:
                 tr = TransitionRule(
                     "rb_data != 1",
-                    true_state = f"COMPLETE_COL_{j + 1}_CHECK_BOX_{j + 1}0_P2",
+                    true_state = f"COMPLETE_COL_{j + 1}_CHECK_BOX_0{j + 1}_P2",
                     false_state = f"HAS_P2_WON"
                 )
         else:
             if i == 0:
-                tr = TransitionRule("always", true_state = f"COMPLETE_COL_{j}_CHECK_BOX_{j}{i + 1}_P2")
+                tr = TransitionRule("always", true_state = f"COMPLETE_COL_{j}_CHECK_BOX_{i + 1}{j}_P2")
             elif i == 1:
                 tr = TransitionRule(
                     "rb_data != 1",
                     true_state = f"COMPLETE_DIA_0_CHECK_BOX_00_P2",
-                    false_state = f"COMPLETE_COL_{j}_CHECK_BOX_{j}{i + 1}_P2"
+                    false_state = f"COMPLETE_COL_{j}_CHECK_BOX_{i + 1}{j}_P2"
                 )
             else:
                 tr = TransitionRule(
@@ -977,9 +931,9 @@ for i in range(3):
                     false_state = f"HAS_P2_WON"
                 )
         A.add_state(
-            f'COMPLETE_COL_{j}_CHECK_BOX_{j}{i}_P2',
+            f'COMPLETE_COL_{j}_CHECK_BOX_{i}{j}_P2',
             StateOutput(
-                ra = f"regfile_addr.box{j}{i}",
+                ra = f"regfile_addr.box{i}{j}",
                 rb = "regfile_addr.temp4",
                 rc = "regfile_addr.temp4",
                 literal = "3",
@@ -1025,7 +979,7 @@ for i in range(3):
     elif i == 1:
         tr = TransitionRule(
             "rb_data != 1",
-            true_state = f"SELECT_BOX_P1",
+            true_state = f"SELECT_BOX_P2",
             false_state = f"COMPLETE_DIA_1_CHECK_BOX_{2-(i+1)}{i+1}_P2"
         )
     else:
@@ -1109,7 +1063,7 @@ A.add_state(
 
 A.generate_fsm_diagram()
 
-with open("./fsm_cases.luc", "w") as file:
+with open("fsm_cases.luc", "w") as file:
     for fsm_state in A.transition:
         print(fsm_state)
         file.write(fsm_state+"\n")
