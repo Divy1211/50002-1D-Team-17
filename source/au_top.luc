@@ -22,7 +22,6 @@ module au_top (
   sig rst;                  // reset signal
   
   .clk(clk) {
-    edge_detector reset_press;
     .rst(rst) {
       custom_clk cclk;
       multi_seven_seg seven_seg_display;
@@ -37,6 +36,8 @@ module au_top (
   .clk(cclk.out) {
     .rst(rst) {
       keypad_driver keypad;
+    }
+    .rst(reset_cond.out) {
       motherboard main_mb;
     }
   }
@@ -47,9 +48,8 @@ module au_top (
     led_out.color = main_mb.disp_out[led_out.pixel];
     outled = led_out.led;
     
-    reset_press.in = (keypad.button_hash | keypad.button_asterisk);
-    reset_cond.in = reset_press.out;
-    rst = reset_cond.out;
+    reset_cond.in = (keypad.button_hash | keypad.button_asterisk);
+    // rst = reset_cond.out;
     
     usb_tx = usb_rx;        // loop serial port
     
