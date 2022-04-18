@@ -208,7 +208,8 @@ module game_fsm (
         DECLARE_P1_WINNER,
         DECLARE_P2_WINNER,
         DECLARE_DRAW,
-        END
+        END,
+        VIEW_BOARD,
       };
     }
   }
@@ -2185,5 +2186,11 @@ module game_fsm (
           finished = 1;
           game_state.d = game_state.START;
         }
-    }
+      game_state.VIEW_BOARD:
+        finished = 1;
+        if(button_0) {
+          finished = 1;
+          game_state.d = game_state.END;
+        }
+  }
 }

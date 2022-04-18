@@ -1180,7 +1180,15 @@ A.add_state(
     StateOutput(
         finished = "1"
     ),
-    TransitionRule("button_hash", "START", label = "# pressed")
+    TransitionRule("button_hash", "VIEW_BOARD", label = "# pressed")
+)
+
+A.add_state(
+    f'VIEW_BOARD',
+    StateOutput(
+        finished = "1"
+    ),
+    TransitionRule("button_0", "END", label = "0 pressed")
 )
 
 A.generate_fsm_diagram()
