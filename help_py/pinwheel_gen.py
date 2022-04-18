@@ -30,8 +30,8 @@ def main():
                 else:
                     col.append('2b00')
 
-        out += f"          led = {{ {', '.join(col)} }};\n"
-        print(f"led = [ {', '.join(map(lambda x: {'2b01': '1', '2b10': '2', '2b11': '3', '2b00': '0'}[x], col))} ];")
+        out += f"          led_state.q = {{ {', '.join(col)} }};\n"
+        # print(f"led = [ {', '.join(map(lambda x: {'2b01': '1', '2b10': '2', '2b11': '3', '2b00': '0'}[x], col))} ];")
 
         if num == np.int8(int('11111100', 2)):
             break
