@@ -209,7 +209,7 @@ module game_fsm (
         DECLARE_P2_WINNER,
         DECLARE_DRAW,
         END,
-        VIEW_BOARD,
+        VIEW_BOARD
       };
     }
   }
