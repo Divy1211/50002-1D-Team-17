@@ -2184,7 +2184,7 @@ module game_fsm (
         finished = 1;
         if(button_hash) {
           finished = 1;
-          game_state.d = game_state.START;
+          game_state.d = game_state.VIEW_BOARD;
         }
       game_state.VIEW_BOARD:
         finished = 1;
